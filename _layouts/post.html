@@ -16,7 +16,7 @@ layout: default
             {% assign read_time = words | divided_by: 180 | plus: 1 %}
             {{ read_time }} min read
             {% if page.category %}
-            · <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/{{ page.category }}" class="category-tag">
+            · <a href="{{ site.baseurl }}/{{ page.lang }}/category/{{ page.category }}" class="category-tag">
               {{ site.data.categories[page.category][page.lang] }}
               </a>
             {% endif %}
@@ -45,14 +45,16 @@ layout: default
   <footer class="post-footer">
     <div class="tags">
       {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}tags/{{ tag }}" class="tag">{{ tag }}</a>
+      <a href="{{ site.baseurl }}/{{ page.lang }}/tags/{{ tag }}" class="tag">{{ tag }}</a>
       {% endfor %}
     </div>
     <div class="share-buttons">
-      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" class="share-button twitter">
+      {% assign page_path = page.url | replace_first: page.lang, '' %}
+      {% capture page_url %}{{ site.url }}{{ site.baseurl }}/{{ page.lang }}{{ page_path }}{% endcapture %}
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page_url }}" target="_blank" class="share-button twitter">
         {{ site.data.ui[page.lang].share_twitter }}
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{ page.title | url_encode }}" target="_blank" class="share-button linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page_url }}&title={{ page.title | url_encode }}" target="_blank" class="share-button linkedin">
         {{ site.data.ui[page.lang].share_linkedin }}
       </a>
     </div>

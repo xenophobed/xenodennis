@@ -1,0 +1,434 @@
+// About page styles
+.about-container {
+  max-width: $header-width;
+  margin: 65px auto 0;
+  padding: 0 24px;
+}
+
+// Hero Section
+.about-hero {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 163, 255, 0.05) 100%);
+  border-radius: 16px;
+  margin: 40px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 102, 255, 0.03) 0px,
+      rgba(0, 102, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+    animation: backgroundMove 20s linear infinite;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .glitch-text {
+    font-family: $font-family-title;
+    font-size: 64px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
+    }
+
+    &::before {
+      animation: glitch-1 2s infinite linear alternate-reverse;
+      color: #0066ff;
+      clip: rect(44px, 450px, 56px, 0);
+    }
+
+    &::after {
+      animation: glitch-2 3s infinite linear alternate-reverse;
+      color: #00a3ff;
+      clip: rect(44px, 450px, 46px, 0);
+    }
+  }
+
+  .hero-subtitle {
+    font-family: $font-family-title;
+    font-size: 24px;
+    color: $color-secondary;
+    margin: 20px 0;
+  }
+
+  .tech-line {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #0066ff, #00a3ff);
+    margin: 0 auto;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #0066ff;
+      border-radius: 50%;
+      top: -2px;
+    }
+
+    &::before {
+      left: -4px;
+    }
+
+    &::after {
+      right: -4px;
+      background: #00a3ff;
+    }
+  }
+}
+
+// Skills Matrix
+.skills-matrix {
+  margin: 80px 0;
+
+  .section-title {
+    font-family: $font-family-title;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-card {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 102, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 163, 255, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+
+      .tech-hexagon {
+        width: 100%;
+        height: 100%;
+        fill: url(#titleGradient);
+      }
+    }
+
+    h3 {
+      font-family: $font-family-title;
+      font-size: 20px;
+      font-weight: 600;
+      color: $color-text;
+      margin: 0 0 16px;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        font-family: $font-family-base;
+        font-size: 16px;
+        color: $color-secondary;
+        margin: 8px 0;
+        padding-left: 24px;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 6px;
+          height: 6px;
+          background: linear-gradient(135deg, #0066ff, #00a3ff);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+// Experience Timeline
+.experience-timeline {
+  margin: 80px 0;
+
+  .section-title {
+    font-family: $font-family-title;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #0066ff, #00a3ff);
+    }
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -39px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, #0066ff, #00a3ff);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    }
+
+    .timeline-content {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(0, 102, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+
+      h3 {
+        font-family: $font-family-title;
+        font-size: 20px;
+        font-weight: 600;
+        color: $color-text;
+        margin: 0 0 8px;
+      }
+
+      .timeline-date {
+        font-family: $font-family-title;
+        font-size: 14px;
+        color: $color-accent;
+        margin: 0 0 16px;
+      }
+
+      p {
+        font-family: $font-family-base;
+        font-size: 16px;
+        color: $color-secondary;
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Contact Section
+.contact-section {
+  margin: 80px 0;
+
+  .section-title {
+    font-family: $font-family-title;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+
+      .contact-icon {
+        background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 163, 255, 0.1) 100%);
+      }
+    }
+
+    .contact-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: background 0.3s ease;
+
+      .tech-hexagon {
+        width: 32px;
+        height: 32px;
+        fill: url(#titleGradient);
+      }
+    }
+
+    span {
+      font-family: $font-family-title;
+      font-size: 16px;
+      color: $color-text;
+    }
+  }
+}
+
+// Animations
+@keyframes backgroundMove {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip: rect(44px, 450px, 56px, 0);
+  }
+  20% {
+    clip: rect(4px, 450px, 16px, 0);
+  }
+  40% {
+    clip: rect(84px, 450px, 96px, 0);
+  }
+  60% {
+    clip: rect(24px, 450px, 36px, 0);
+  }
+  80% {
+    clip: rect(64px, 450px, 76px, 0);
+  }
+  100% {
+    clip: rect(44px, 450px, 56px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip: rect(44px, 450px, 46px, 0);
+  }
+  20% {
+    clip: rect(84px, 450px, 86px, 0);
+  }
+  40% {
+    clip: rect(24px, 450px, 26px, 0);
+  }
+  60% {
+    clip: rect(64px, 450px, 66px, 0);
+  }
+  80% {
+    clip: rect(4px, 450px, 6px, 0);
+  }
+  100% {
+    clip: rect(44px, 450px, 46px, 0);
+  }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .skills-matrix .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 300px;
+
+    .glitch-text {
+      font-size: 48px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  .skills-matrix .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-section .contact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+} 

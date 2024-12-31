@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="40" viewBox="0 0 240 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="titleGradient" x1="0" y1="0" x2="240" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#00A3FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background glow effect -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="0.5" result="glow"/>
+    <feMerge>
+      <feMergeNode in="glow"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Main text group -->
+  <g filter="url(#glow)" transform="translate(40, 4)">
+    <!-- X -->
+    <text x="0" y="28" 
+          font-family="Orbitron, 'Space Grotesk', 'SF Pro Display'" 
+          font-weight="700" 
+          font-size="32" 
+          fill="url(#titleGradient)"
+          letter-spacing="-1">
+      X
+    </text>
+    
+    <!-- eno -->
+    <text x="22" y="28" 
+          font-family="Orbitron, 'Space Grotesk', 'SF Pro Display'" 
+          font-weight="500" 
+          font-size="28" 
+          fill="url(#titleGradient)"
+          letter-spacing="-0.5">
+      eno
+    </text>
+    
+    <!-- D -->
+    <text x="72" y="28" 
+          font-family="Orbitron, 'Space Grotesk', 'SF Pro Display'" 
+          font-weight="700" 
+          font-size="32" 
+          fill="url(#titleGradient)"
+          letter-spacing="-1">
+      D
+    </text>
+    
+    <!-- ennis -->
+    <text x="94" y="28" 
+          font-family="Orbitron, 'Space Grotesk', 'SF Pro Display'" 
+          font-weight="500" 
+          font-size="28" 
+          fill="url(#titleGradient)"
+          letter-spacing="-0.5">
+      ennis
+    </text>
+  </g>
+</svg> 

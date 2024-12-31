@@ -1,58 +1,41 @@
-title: XenoDennis Blog
-email: your-email@example.com
-description: >-
-  A multilingual blog powered by Jekyll and GitHub Pages
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # your site's domain, e.g. https://username.github.io
-github_username: xenodennis
+title: XENODENNIS
+description: Full Stack Developer & AI Specialist
+baseurl: /xenodennis
+url: ""
 
 # Build settings
 markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-multiple-languages-plugin
-
-# Multilingual settings
-languages: ["en", "zh"]
-default_lang: "en"
-exclude_from_localizations: ["javascript", "images", "css", "scripts", "favicon.ico"]
-language_names:
-  en: English
-  zh: 中文
-
-# Collections
 permalink: /:categories/:year/:month/:day/:title/
+
+# Collections for multilingual content
+collections:
+  posts_en:
+    output: true
+    permalink: /:year/:month/:day/:title/
+  posts_zh:
+    output: true
+    permalink: /zh/:year/:month/:day/:title/
+
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: "posts"
+      type: "posts_en"
     values:
-      layout: "post"
-  -
-    scope:
-      path: "_i18n/en/_posts"
+      layout: post
+      lang: en
+  - scope:
+      path: ""
+      type: "posts_zh"
     values:
-      lang: "en"
-  -
-    scope:
-      path: "_i18n/zh/_posts"
-    values:
-      lang: "zh"
+      layout: post
+      lang: zh
 
-# Multiple languages plugin settings
-languages_inc_dir: "_i18n"
-languages_data_dir: "_data"
-parallel_localization: true
-
-# GitHub Pages settings
-github:
-  is_project_page: false
-
-# Sass
-sass:
-  sass_dir: _sass
-  style: compressed
-  load_paths:
-    - _sass
-    - node_modules 
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md 

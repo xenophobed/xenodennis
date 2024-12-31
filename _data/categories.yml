@@ -1,9 +1,18 @@
 digital_transformation:
   en: "Digital Transformation"
   zh: "数字化转型"
+  description:
+    en: "Explore the latest trends and insights in digital transformation, from emerging technologies to organizational change."
+    zh: "探索数字化转型的最新趋势和见解，从新兴技术到组织变革。"
 data_science:
   en: "Data Science"
   zh: "数据科学"
+  description:
+    en: "Dive into the world of data science, machine learning, and analytics."
+    zh: "深入数据科学、机器学习和分析的世界。"
 ai:
   en: "Artificial Intelligence"
-  zh: "人工智能" 
+  zh: "人工智能"
+  description:
+    en: "Discover the latest developments in AI, from deep learning to practical applications."
+    zh: "探索人工智能的最新发展，从深度学习到实际应用。" 

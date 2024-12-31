@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Neural network nodes -->
+  <circle cx="8" cy="8" r="2" fill="#0066FF"/>
+  <circle cx="24" cy="8" r="2" fill="#0066FF"/>
+  <circle cx="16" cy="16" r="2" fill="#0066FF"/>
+  <circle cx="8" cy="24" r="2" fill="#0066FF"/>
+  <circle cx="24" cy="24" r="2" fill="#0066FF"/>
+  
+  <!-- Neural network connections -->
+  <path d="M8 8L16 16M16 16L24 8M8 24L16 16M16 16L24 24" stroke="#0066FF" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Outer hexagon -->
+  <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="#0066FF" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+</svg> 

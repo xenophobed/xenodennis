@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<div class="category-page">
+  <header class="category-header">
+    <div class="category-header-content">
+      {% assign category_key = page.category | replace: "-", "_" %}
+      <h1 class="category-title">{{ page.title }}</h1>
+      <div class="category-description">
+        <p>{{ site.data.categories[category_key].description[page.lang] }}</p>
+      </div>
+      <div class="category-meta">
+        {% if page.lang == "zh" %}
+          {% assign posts = site.posts_zh | where: "category", page.category %}
+        {% else %}
+          {% assign posts = site.posts_en | where: "category", page.category %}
+        {% endif %}
+        <span class="post-count">{{ posts.size }} {{ site.data.ui[page.lang].posts }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="category-content">
+    <div class="post-grid">
+      {% for post in posts %}
+      <article class="post-card">
+        {% if post.cover_image %}
+        <div class="post-card-image">
+          <a href="{{ site.baseurl }}{{ post.url }}">
+            <img src="{{ post.cover_image }}" alt="{{ post.title }}">
+          </a>
+        </div>
+        {% endif %}
+        <div class="post-card-content">
+          <div class="post-meta">
+            <div class="author-info">
+              {% if post.author_avatar %}
+              <img src="{{ post.author_avatar }}" alt="{{ post.author }}" class="author-avatar">
+              {% endif %}
+              <span class="author-name">{{ post.author }}</span>
+              <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            </div>
+          </div>
+          
+          <h2 class="post-title">
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </h2>
+          
+          {% if post.subtitle %}
+          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+          {% endif %}
+          
+          <p class="post-excerpt">
+            {{ post.content | strip_html | truncatewords: 30 }}
+          </p>
+          
+          <div class="post-footer">
+            <div class="reading-time">
+              {% assign words = post.content | number_of_words %}
+              {% assign read_time = words | divided_by: 180 | plus: 1 %}
+              {{ read_time }} {{ site.data.ui[page.lang].min_read }}
+            </div>
+            {% if post.tags.size > 0 %}
+            <div class="post-tags">
+              {% for tag in post.tags limit:3 %}
+              <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}tags/{{ tag }}" class="tag">{{ tag }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</div> 

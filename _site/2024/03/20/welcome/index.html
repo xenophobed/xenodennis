@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to My Blog - XENODENNIS</title>
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/xenodennis/feed.xml" title="XENODENNIS" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="/xenodennis/" class="site-title">
+            <img src="/xenodennis/assets/images/logo.svg" alt="XENODENNIS" class="site-logo">
+            <img src="/xenodennis/assets/images/title.svg" alt="XENODENNIS" class="site-title-svg">
+          </a>
+        </div>
+
+        <div class="header-center">
+          <nav class="site-nav">
+            
+              <a class="nav-link " href="/xenodennis/">Home</a>
+              <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+              <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+            
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search posts and pages...">
+            <ul id="search-results"></ul>
+          </div>
+          
+          <div class="lang-switcher">
+            
+              <a class="lang-link active" href="/xenodennis/">EN</a>
+              <span class="lang-separator">|</span>
+              <a class="lang-link" href="/xenodennis/zh/">中</a>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <article class="post" lang="en">
+  <header class="post-header">
+    <div class="post-meta">
+      <div class="author-info">
+        <img src="/xenodennis/assets/images/avatar.jpg" alt="Author" class="author-avatar">
+        <div class="author-details">
+          <div class="author-name">XenoDennis</div>
+          <div class="post-info">
+            <time datetime="2024-03-20T00:00:00+08:00">
+              March 20, 2024
+            </time>
+            · 
+            
+            1 min read
+            
+            · <a href="/xenodennis/en/category/digital-transformation" class="category-tag">
+              
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="post-title">Welcome to My Blog</h1>
+    
+    <h2 class="post-subtitle">A journey through technology, design, and life</h2>
+    
+    
+    <figure class="post-cover">
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Welcome to My Blog">
+      
+      <figcaption>Photo by Christopher Gower on Unsplash</figcaption>
+      
+    </figure>
+    
+  </header>
+
+  <div class="post-content">
+    <p><img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479" alt="Modern workspace with laptop and coffee" />
+<em>A modern developer’s workspace</em></p>
+
+<p>Technology has always been at the forefront of human evolution. From the first stone tools to modern quantum computers, our ability to create and innovate has shaped the world we live in.</p>
+
+<h2 id="the-journey-begins">The Journey Begins</h2>
+
+<p>When I first started programming, I was fascinated by the endless possibilities that code could bring to life. Every line of code was a step towards creating something new, something that could potentially change how people interact with technology.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <div class="tags">
+      
+      <a href="/xenodennis/en/tags/welcome" class="tag">welcome</a>
+      
+      <a href="/xenodennis/en/tags/blog" class="tag">blog</a>
+      
+      <a href="/xenodennis/en/tags/technology" class="tag">technology</a>
+      
+    </div>
+    <div class="share-buttons">
+      
+      
+      <a href="https://twitter.com/intent/tweet?text=Welcome+to+My+Blog&url=http://localhost:4000/xenodennis/en/2024/03/20/welcome/" target="_blank" class="share-button twitter">
+        Share on Twitter
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/xenodennis/en/2024/03/20/welcome/&title=Welcome+to+My+Blog" target="_blank" class="share-button linkedin">
+        Share on LinkedIn
+      </a>
+    </div>
+  </footer>
+</article>
+
+<aside class="post-sidebar">
+  <div class="table-of-contents">
+    <h3>Table of Contents</h3>
+    <!-- 这里将通过 JavaScript 自动生成目录 -->
+  </div>
+</aside> 
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-content">
+          © 2025 XENODENNIS
+        </div>
+      </div>
+    </footer>
+
+    <!-- Simple Jekyll Search -->
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script>
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      
+      SimpleJekyllSearch({
+        searchInput: searchInput,
+        resultsContainer: searchResults,
+        json: '/xenodennis/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        success: function() {
+          searchResults.classList.add('visible');
+        }
+      });
+
+      document.addEventListener('click', function(event) {
+        const isClickInside = searchInput.contains(event.target) || searchResults.contains(event.target);
+        if (!isClickInside) {
+          searchResults.classList.remove('visible');
+        }
+      });
+
+      searchInput.addEventListener('input', function() {
+        if (!this.value) {
+          searchResults.classList.remove('visible');
+        }
+      });
+
+      searchInput.addEventListener('click', function() {
+        if (this.value && searchResults.children.length > 0) {
+          searchResults.classList.add('visible');
+        }
+      });
+    </script>
+  </body>
+</html> 

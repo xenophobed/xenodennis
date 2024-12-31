@@ -9,20 +9,7 @@ layout: null
       "tags"     : "{{ post.tags | join: ', ' }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
       "date"     : "{{ post.date | date: '%B %-d, %Y' }}",
-      "excerpt"  : {{ post.excerpt | strip_html | strip_newlines | jsonify }},
-      "content"  : {{ post.content | strip_html | strip_newlines | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
-  {% for page in site.pages %}
-    {% if page.title != nil and page.title != 'Tags' %}
-    ,{
-      "title"    : "{{ page.title | escape }}",
-      "category" : "{{ page.category }}",
-      "tags"     : "{{ page.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ page.url }}",
-      "excerpt"  : {{ page.excerpt | strip_html | strip_newlines | jsonify }},
-      "content"  : {{ page.content | strip_html | strip_newlines | jsonify }}
-    }
-    {% endif %}
+      "lang"     : "{{ post.lang }}"
+    } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ] 

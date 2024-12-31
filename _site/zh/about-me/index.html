@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于我 - XENODENNIS</title>
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/xenodennis/feed.xml" title="XENODENNIS" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="/xenodennis/zh/" class="site-title">
+            <img src="/xenodennis/assets/images/logo.svg" alt="XENODENNIS" class="site-logo">
+            <img src="/xenodennis/assets/images/title.svg" alt="XENODENNIS" class="site-title-svg">
+          </a>
+        </div>
+
+        <div class="header-center">
+          <nav class="site-nav">
+            
+              <a class="nav-link " href="/xenodennis/zh/">首页</a>
+              <a class="nav-link active" href="/xenodennis/zh/about-me/">关于我</a>
+              <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+            
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索文章和页面...">
+            <ul id="search-results"></ul>
+          </div>
+          
+          <div class="lang-switcher">
+            
+              <a class="lang-link" href="/xenodennis/">EN</a>
+              <span class="lang-separator">|</span>
+              <a class="lang-link active" href="/xenodennis/zh/">中</a>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="about-container">
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1 class="glitch-text" data-text="XENODENNIS">XENODENNIS</h1>
+      <p class="hero-subtitle">全栈开发工程师 & AI 专家</p>
+      <div class="tech-line"></div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix -->
+  <section class="skills-matrix">
+    <h2 class="section-title">技术专长</h2>
+    <div class="skills-grid">
+      <div class="skill-card" data-category="AI/ML">
+        <div class="skill-icon">
+          <svg class="tech-hexagon"></svg>
+        </div>
+        <h3>人工智能与机器学习</h3>
+        <ul class="skill-list">
+          <li>深度学习与神经网络</li>
+          <li>自然语言处理</li>
+          <li>计算机视觉</li>
+          <li>大语言模型集成与微调</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card" data-category="Development">
+        <div class="skill-icon">
+          <svg class="tech-hexagon"></svg>
+        </div>
+        <h3>全栈开发</h3>
+        <ul class="skill-list">
+          <li>现代前端框架</li>
+          <li>后端架构</li>
+          <li>云基础设施</li>
+          <li>DevOps 与 CI/CD</li>
+        </ul>
+      </div>
+      
+      <div class="skill-card" data-category="Architecture">
+        <div class="skill-icon">
+          <svg class="tech-hexagon"></svg>
+        </div>
+        <h3>系统架构</h3>
+        <ul class="skill-list">
+          <li>微服务设计</li>
+          <li>可扩展系统</li>
+          <li>API 开发</li>
+          <li>数据库优化</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section class="experience-timeline">
+    <h2 class="section-title">职业经历</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>高级 AI 工程师</h3>
+          <p class="timeline-date">2022 - 至今</p>
+          <p>领导 AI 集成项目，使用最新技术开发前沿解决方案。</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>全栈开发工程师</h3>
+          <p class="timeline-date">2019 - 2022</p>
+          <p>使用现代技术栈架构和开发可扩展的 Web 应用。</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>软件工程师</h3>
+          <p class="timeline-date">2017 - 2019</p>
+          <p>专注于后端开发和系统优化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2 class="section-title">联系方式</h2>
+    <div class="contact-grid">
+      <a href="https://github.com/xenodennis" class="contact-item" target="_blank">
+        <div class="contact-icon">
+          <svg class="tech-hexagon"></svg>
+        </div>
+        <span>GitHub</span>
+      </a>
+      
+      <a href="mailto:your-email@example.com" class="contact-item">
+        <div class="contact-icon">
+          <svg class="tech-hexagon"></svg>
+        </div>
+        <span>邮箱</span>
+      </a>
+    </div>
+  </section>
+</div> 
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-content">
+          © 2025 XENODENNIS
+        </div>
+      </div>
+    </footer>
+
+    <!-- Simple Jekyll Search -->
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script>
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      
+      SimpleJekyllSearch({
+        searchInput: searchInput,
+        resultsContainer: searchResults,
+        json: '/xenodennis/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+        noResultsText: '未找到结果',
+        limit: 10,
+        fuzzy: false,
+        success: function() {
+          searchResults.classList.add('visible');
+        }
+      });
+
+      document.addEventListener('click', function(event) {
+        const isClickInside = searchInput.contains(event.target) || searchResults.contains(event.target);
+        if (!isClickInside) {
+          searchResults.classList.remove('visible');
+        }
+      });
+
+      searchInput.addEventListener('input', function() {
+        if (!this.value) {
+          searchResults.classList.remove('visible');
+        }
+      });
+
+      searchInput.addEventListener('click', function() {
+        if (this.value && searchResults.children.length > 0) {
+          searchResults.classList.add('visible');
+        }
+      });
+    </script>
+  </body>
+</html> 

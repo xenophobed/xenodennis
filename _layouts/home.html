@@ -5,23 +5,12 @@ layout: default
 <div class="home-container">
   <main class="main-content">
     <div class="post-list">
-      {% assign all_posts = site.posts | where: "lang", page.lang %}
-      {% if page.category %}
-        {% assign posts = all_posts | where: "category", page.category %}
+      {% if page.lang == "zh" %}
+        {% assign posts = site.posts_zh %}
       {% else %}
-        {% assign posts = all_posts %}
+        {% assign posts = site.posts_en %}
       {% endif %}
       
-      {% if page.category %}
-      <header class="category-header">
-        <h1 class="category-title">
-          {% if page.title %}
-            {{ page.title }}
-          {% endif %}
-        </h1>
-      </header>
-      {% endif %}
-
       {% for post in posts %}
       <article class="post-preview">
         <div class="post-content-preview">
@@ -40,8 +29,9 @@ layout: default
                   {% assign read_time = words | divided_by: 180 | plus: 1 %}
                   {{ read_time }} min read
                   {% if post.category %}
-                  · <a href="{{ site.baseurl }}/{% if post.lang == 'zh' %}zh/{% endif %}category/{{ post.category }}" class="category-tag">
-                    {{ site.data.categories[post.category][post.lang] }}
+                  · <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/{{ post.category }}" class="category-tag">
+                    {% assign category_key = post.category | replace: "-", "_" %}
+                    {{ site.data.categories[category_key][page.lang] }}
                     </a>
                   {% endif %}
                 </div>
@@ -50,7 +40,7 @@ layout: default
           </div>
           
           <h2 class="post-title">
-            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
           </h2>
           
           {% if post.subtitle %}
@@ -64,19 +54,13 @@ layout: default
         
         {% if post.cover_image %}
         <div class="post-thumbnail">
-          <a href="{{ post.url | relative_url }}" class="post-thumbnail-link">
+          <a href="{{ site.baseurl }}{{ post.url }}" class="post-thumbnail-link">
             <img src="{{ post.cover_image }}" alt="{{ post.title }}" class="thumbnail-image">
           </a>
         </div>
         {% endif %}
       </article>
       {% endfor %}
-
-      {% if posts.size == 0 %}
-      <div class="no-posts">
-        <p>{{ site.data.ui[page.lang].no_posts }}</p>
-      </div>
-      {% endif %}
     </div>
   </main>
 
@@ -86,29 +70,16 @@ layout: default
         <h3>{{ site.data.ui[page.lang].categories }}</h3>
         <ul>
           <li>
-            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/digital-transformation" class="category-link {% if page.category == 'digital-transformation' %}active{% endif %}">
+            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/digital-transformation/" class="category-link {% if page.category == 'digital-transformation' %}active{% endif %}">
               {{ site.data.categories.digital_transformation[page.lang] }}
               <span class="post-count">
-                {% assign dt_posts = all_posts | where: "category", "digital-transformation" %}
+                {% if page.lang == "zh" %}
+                  {% assign lang_posts = site.posts_zh %}
+                {% else %}
+                  {% assign lang_posts = site.posts_en %}
+                {% endif %}
+                {% assign dt_posts = lang_posts | where: "category", "digital-transformation" %}
                 {{ dt_posts.size }}
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/data-science" class="category-link {% if page.category == 'data-science' %}active{% endif %}">
-              {{ site.data.categories.data_science[page.lang] }}
-              <span class="post-count">
-                {% assign ds_posts = all_posts | where: "category", "data-science" %}
-                {{ ds_posts.size }}
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/ai" class="category-link {% if page.category == 'ai' %}active{% endif %}">
-              {{ site.data.categories.ai[page.lang] }}
-              <span class="post-count">
-                {% assign ai_posts = all_posts | where: "category", "ai" %}
-                {{ ai_posts.size }}
               </span>
             </a>
           </li>
@@ -116,18 +87,4 @@ layout: default
       </nav>
     </div>
   </aside>
-</div>
-
-<!-- Simple Jekyll Search -->
-<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-<script>
-  SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('search-results'),
-    json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '{{ site.data.ui[page.lang].no_results }}',
-    limit: 10,
-    fuzzy: false
-  });
-</script> 
+</div> 
