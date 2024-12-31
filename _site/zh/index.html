@@ -12,14 +12,14 @@
         <div class="header-left">
           <a class="site-title" href="/zh/">XenoDennis Blog</a>
           <div class="search-container">
-            <input type="text" id="search-input" placeholder="搜索文章和页面...">
+            <input type="text" id="search-input" placeholder="Search posts and pages...">
             <ul id="search-results"></ul>
           </div>
         </div>
         <nav class="site-nav">
           
-            <a class="nav-link" href="/zh/">English</a>
-            <a class="nav-link active" href="/zh/zh">中文</a>
+            <a class="nav-link active" href="/zh/">English</a>
+            <a class="nav-link" href="/zh/zh">中文</a>
           
         </nav>
       </div>
@@ -117,7 +117,7 @@
         resultsContainer: searchResults,
         json: '/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: '未找到结果',
+        noResultsText: 'No results found',
         limit: 10,
         fuzzy: false,
         success: function() {

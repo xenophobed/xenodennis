@@ -4,34 +4,5 @@ lang: en
 ---
 
 <div class="home">
-  <h1>{% t global.tagline %}</h1>
-
-  <div class="post-list">
-    {% for post in site.posts %}
-    <article class="post-item">
-      <header>
-        <div class="post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: "%B %-d, %Y" }}
-          </time>
-        </div>
-        <h2 class="post-title">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </header>
-      
-      {% if post.excerpt %}
-      <div class="post-excerpt">
-        {{ post.excerpt }}
-      </div>
-      {% endif %}
-      
-      <footer class="post-footer">
-        <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">
-          {% t global.read_more %}
-        </a>
-      </footer>
-    </article>
-    {% endfor %}
-  </div>
+  <h1>{{ site.data.ui[page.lang].tagline }}</h1>
 </div> 
