@@ -30,6 +30,10 @@ defaults:
       layout: post
       lang: zh
 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
 exclude:
   - Gemfile
   - Gemfile.lock
