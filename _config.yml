@@ -45,6 +45,10 @@ languages_inc_dir: "_i18n"
 languages_data_dir: "_data"
 parallel_localization: true
 
+# GitHub Pages settings
+github:
+  is_project_page: false
+
 # Sass
 sass:
   sass_dir: _sass

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Digital Transformation - XenoDennis Blog</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/zh/assets/css/styles.css">
   </head>
   <body>
     <header class="site-header">
       <div class="header-inner">
         <div class="header-left">
-          <a class="site-title" href="/">XenoDennis Blog</a>
+          <a class="site-title" href="/zh/">XenoDennis Blog</a>
           <div class="search-container">
             <input type="text" id="search-input" placeholder="搜索文章和页面...">
             <ul id="search-results"></ul>
@@ -18,8 +18,8 @@
         </div>
         <nav class="site-nav">
           
-            <a class="nav-link" href="/">English</a>
-            <a class="nav-link active" href="/zh">中文</a>
+            <a class="nav-link" href="/zh/">English</a>
+            <a class="nav-link active" href="/zh/zh">中文</a>
           
         </nav>
       </div>
@@ -36,8 +36,8 @@
       <header class="category-header">
         <h1 class="category-title">
           
-              数字化转型
-            
+            Digital Transformation
+          
         </h1>
       </header>
       
@@ -46,7 +46,7 @@
 
       
       <div class="no-posts">
-        <p>暂无文章</p>
+        <p>No posts found</p>
       </div>
       
     </div>
@@ -55,11 +55,11 @@
   <aside class="sidebar">
     <div class="sticky-sidebar">
       <nav class="categories">
-        <h3>分类</h3>
+        <h3>Categories</h3>
         <ul>
           <li>
             <a href="/zh/category/digital-transformation" class="category-link active">
-              数字化转型
+              Digital Transformation
               <span class="post-count">
                 
                 0
@@ -68,7 +68,7 @@
           </li>
           <li>
             <a href="/zh/category/data-science" class="category-link ">
-              数据科学
+              Data Science
               <span class="post-count">
                 
                 0
@@ -77,7 +77,7 @@
           </li>
           <li>
             <a href="/zh/category/ai" class="category-link ">
-              人工智能
+              Artificial Intelligence
               <span class="post-count">
                 
                 0
@@ -98,7 +98,7 @@
     resultsContainer: document.getElementById('search-results'),
     json: '/search.json',
     searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '未找到结果',
+    noResultsText: 'No results found',
     limit: 10,
     fuzzy: false
   });

@@ -15,14 +15,9 @@ layout: default
       {% if page.category %}
       <header class="category-header">
         <h1 class="category-title">
-          {% case page.category %}
-            {% when 'digital-transformation' %}
-              {% t categories.digital_transformation %}
-            {% when 'data-science' %}
-              {% t categories.data_science %}
-            {% when 'ai' %}
-              {% t categories.ai %}
-          {% endcase %}
+          {% if page.title %}
+            {{ page.title }}
+          {% endif %}
         </h1>
       </header>
       {% endif %}
@@ -46,14 +41,7 @@ layout: default
                   {{ read_time }} min read
                   {% if post.category %}
                   · <a href="{{ site.baseurl }}/{% if post.lang == 'zh' %}zh/{% endif %}category/{{ post.category }}" class="category-tag">
-                    {% case post.category %}
-                      {% when 'digital-transformation' %}
-                        {% t categories.digital_transformation %}
-                      {% when 'data-science' %}
-                        {% t categories.data_science %}
-                      {% when 'ai' %}
-                        {% t categories.ai %}
-                    {% endcase %}
+                    {{ site.data.categories[post.category][post.lang] }}
                     </a>
                   {% endif %}
                 </div>
@@ -86,7 +74,7 @@ layout: default
 
       {% if posts.size == 0 %}
       <div class="no-posts">
-        <p>{% t global.no_posts %}</p>
+        <p>{{ site.data.ui[page.lang].no_posts }}</p>
       </div>
       {% endif %}
     </div>
@@ -95,11 +83,11 @@ layout: default
   <aside class="sidebar">
     <div class="sticky-sidebar">
       <nav class="categories">
-        <h3>{% t global.categories %}</h3>
+        <h3>{{ site.data.ui[page.lang].categories }}</h3>
         <ul>
           <li>
             <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/digital-transformation" class="category-link {% if page.category == 'digital-transformation' %}active{% endif %}">
-              {% t categories.digital_transformation %}
+              {{ site.data.categories.digital_transformation[page.lang] }}
               <span class="post-count">
                 {% assign dt_posts = all_posts | where: "category", "digital-transformation" %}
                 {{ dt_posts.size }}
@@ -108,7 +96,7 @@ layout: default
           </li>
           <li>
             <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/data-science" class="category-link {% if page.category == 'data-science' %}active{% endif %}">
-              {% t categories.data_science %}
+              {{ site.data.categories.data_science[page.lang] }}
               <span class="post-count">
                 {% assign ds_posts = all_posts | where: "category", "data-science" %}
                 {{ ds_posts.size }}
@@ -117,7 +105,7 @@ layout: default
           </li>
           <li>
             <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/ai" class="category-link {% if page.category == 'ai' %}active{% endif %}">
-              {% t categories.ai %}
+              {{ site.data.categories.ai[page.lang] }}
               <span class="post-count">
                 {% assign ai_posts = all_posts | where: "category", "ai" %}
                 {{ ai_posts.size }}
@@ -138,7 +126,7 @@ layout: default
     resultsContainer: document.getElementById('search-results'),
     json: '/search.json',
     searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    noResultsText: '{% t global.no_results %}',
+    noResultsText: '{{ site.data.ui[page.lang].no_results }}',
     limit: 10,
     fuzzy: false
   });

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-12-31T19:07:45+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">XenoDennis Blog</title><subtitle>A multilingual blog powered by Jekyll and GitHub Pages</subtitle><entry xml:lang="en"><title type="html">Welcome to My Blog</title><link href="http://localhost:4000/digital-transformation/2024/03/20/welcome/" rel="alternate" type="text/html" title="Welcome to My Blog" /><published>2024-03-20T00:00:00+08:00</published><updated>2024-03-20T00:00:00+08:00</updated><id>http://localhost:4000/digital-transformation/2024/03/20/welcome</id><content type="html" xml:base="http://localhost:4000/digital-transformation/2024/03/20/welcome/"><![CDATA[<p><img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479" alt="Modern workspace with laptop and coffee" />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-12-31T19:13:17+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">XenoDennis Blog</title><subtitle>A multilingual blog powered by Jekyll and GitHub Pages</subtitle><entry xml:lang="en"><title type="html">Welcome to My Blog</title><link href="http://localhost:4000/digital-transformation/2024/03/20/welcome/" rel="alternate" type="text/html" title="Welcome to My Blog" /><published>2024-03-20T00:00:00+08:00</published><updated>2024-03-20T00:00:00+08:00</updated><id>http://localhost:4000/digital-transformation/2024/03/20/welcome</id><content type="html" xml:base="http://localhost:4000/digital-transformation/2024/03/20/welcome/"><![CDATA[<p><img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479" alt="Modern workspace with laptop and coffee" />
 <em>A modern developer’s workspace</em></p>
 
 <p>Technology has always been at the forefront of human evolution. From the first stone tools to modern quantum computers, our ability to create and innovate has shaped the world we live in.</p>
@@ -22,10 +22,10 @@
 </ol>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welcome to my blog!</span><span class="sh">"</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Let</span><span class="sh">'</span><span class="s">s explore technology together!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Welcome to my blog!"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Let's explore technology together!"</span><span class="p">)</span>
 
-<span class="nf">hello_world</span><span class="p">()</span>
+<span class="n">hello_world</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h2 id="why-medium-style">Why Medium Style?</h2>

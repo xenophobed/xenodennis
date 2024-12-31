@@ -17,14 +17,7 @@ layout: default
             {{ read_time }} min read
             {% if page.category %}
             · <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/{{ page.category }}" class="category-tag">
-              {% case page.category %}
-                {% when 'digital-transformation' %}
-                  {% t categories.digital_transformation %}
-                {% when 'data-science' %}
-                  {% t categories.data_science %}
-                {% when 'ai' %}
-                  {% t categories.ai %}
-              {% endcase %}
+              {{ site.data.categories[page.category][page.lang] }}
               </a>
             {% endif %}
           </div>
@@ -57,10 +50,10 @@ layout: default
     </div>
     <div class="share-buttons">
       <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" class="share-button twitter">
-        {% t global.share_twitter %}
+        {{ site.data.ui[page.lang].share_twitter }}
       </a>
       <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{ page.title | url_encode }}" target="_blank" class="share-button linkedin">
-        {% t global.share_linkedin %}
+        {{ site.data.ui[page.lang].share_linkedin }}
       </a>
     </div>
   </footer>
@@ -68,7 +61,7 @@ layout: default
 
 <aside class="post-sidebar">
   <div class="table-of-contents">
-    <h3>{% t global.table_of_contents %}</h3>
+    <h3>{{ site.data.ui[page.lang].table_of_contents }}</h3>
     <!-- 这里将通过 JavaScript 自动生成目录 -->
   </div>
 </aside> 

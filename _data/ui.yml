@@ -1,0 +1,19 @@
+en:
+  tagline: "A multilingual blog powered by Jekyll"
+  categories: "Categories"
+  no_posts: "No posts found"
+  no_results: "No results found"
+  read_more: "Read more"
+  table_of_contents: "Table of Contents"
+  share_twitter: "Share on Twitter"
+  share_linkedin: "Share on LinkedIn"
+
+zh:
+  tagline: "基于 Jekyll 的多语言博客"
+  categories: "分类"
+  no_posts: "暂无文章"
+  no_results: "未找到结果"
+  read_more: "阅读更多"
+  table_of_contents: "目录"
+  share_twitter: "分享到 Twitter"
+  share_linkedin: "分享到 LinkedIn" 
