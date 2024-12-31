@@ -7,6 +7,9 @@ en:
   table_of_contents: "Table of Contents"
   share_twitter: "Share on Twitter"
   share_linkedin: "Share on LinkedIn"
+  search_placeholder: "Search posts and pages..."
+  en: "English"
+  zh: "中文"
 
 zh:
   tagline: "基于 Jekyll 的多语言博客"
@@ -16,4 +19,7 @@ zh:
   read_more: "阅读更多"
   table_of_contents: "目录"
   share_twitter: "分享到 Twitter"
-  share_linkedin: "分享到 LinkedIn" 
+  share_linkedin: "分享到 LinkedIn"
+  search_placeholder: "搜索文章和页面..."
+  en: "English"
+  zh: "中文" 
