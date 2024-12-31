@@ -1,0 +1,74 @@
+---
+layout: default
+---
+<article class="post" lang="{{ page.lang }}">
+  <header class="post-header">
+    <div class="post-meta">
+      <div class="author-info">
+        <img src="{{ site.baseurl }}/assets/images/avatar.jpg" alt="Author" class="author-avatar">
+        <div class="author-details">
+          <div class="author-name">{{ page.author }}</div>
+          <div class="post-info">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+              {{ page.date | date: "%B %-d, %Y" }}
+            </time>
+            · {% assign words = content | number_of_words %}
+            {% assign read_time = words | divided_by: 180 | plus: 1 %}
+            {{ read_time }} min read
+            {% if page.category %}
+            · <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/{{ page.category }}" class="category-tag">
+              {% case page.category %}
+                {% when 'digital-transformation' %}
+                  {% t categories.digital_transformation %}
+                {% when 'data-science' %}
+                  {% t categories.data_science %}
+                {% when 'ai' %}
+                  {% t categories.ai %}
+              {% endcase %}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+    {% if page.cover_image %}
+    <figure class="post-cover">
+      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}">
+      {% if page.cover_caption %}
+      <figcaption>{{ page.cover_caption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="tags">
+      {% for tag in page.tags %}
+      <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}tags/{{ tag }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" class="share-button twitter">
+        {% t global.share_twitter %}
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{ page.title | url_encode }}" target="_blank" class="share-button linkedin">
+        {% t global.share_linkedin %}
+      </a>
+    </div>
+  </footer>
+</article>
+
+<aside class="post-sidebar">
+  <div class="table-of-contents">
+    <h3>{% t global.table_of_contents %}</h3>
+    <!-- 这里将通过 JavaScript 自动生成目录 -->
+  </div>
+</aside> 

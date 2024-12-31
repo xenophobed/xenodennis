@@ -1,0 +1,54 @@
+title: XenoDennis Blog
+email: your-email@example.com
+description: >-
+  A multilingual blog powered by Jekyll and GitHub Pages
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # your site's domain, e.g. https://username.github.io
+github_username: xenodennis
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
+# Multilingual settings
+languages: ["en", "zh"]
+default_lang: "en"
+exclude_from_localizations: ["javascript", "images", "css", "scripts", "favicon.ico"]
+language_names:
+  en: English
+  zh: 中文
+
+# Collections
+permalink: /:categories/:year/:month/:day/:title/
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_i18n/en/_posts"
+    values:
+      lang: "en"
+  -
+    scope:
+      path: "_i18n/zh/_posts"
+    values:
+      lang: "zh"
+
+# Multiple languages plugin settings
+languages_inc_dir: "_i18n"
+languages_data_dir: "_data"
+parallel_localization: true
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+  load_paths:
+    - _sass
+    - node_modules 

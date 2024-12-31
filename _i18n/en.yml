@@ -1,0 +1,27 @@
+global:
+  en: English
+  zh: 中文
+  tagline: "A multilingual blog powered by Jekyll"
+  about: About
+  blog: Blog
+  contact: Contact
+  latest_posts: Latest Posts
+  read_more: "Read more"
+  search_placeholder: Search posts and pages...
+  no_results: "No results found"
+  categories: "Categories"
+  no_posts: "No posts found"
+  table_of_contents: "Table of Contents"
+  share_twitter: "Share on Twitter"
+  share_linkedin: "Share on LinkedIn"
+
+categories:
+  digital_transformation: "Digital Transformation"
+  data_science: "Data Science"
+  ai: "Artificial Intelligence"
+
+titles:
+  home: Home
+  about: About
+  blog: Blog
+  contact: Contact 

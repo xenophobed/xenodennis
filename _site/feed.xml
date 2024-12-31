@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-12-31T19:07:45+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">XenoDennis Blog</title><subtitle>A multilingual blog powered by Jekyll and GitHub Pages</subtitle><entry xml:lang="en"><title type="html">Welcome to My Blog</title><link href="http://localhost:4000/digital-transformation/2024/03/20/welcome/" rel="alternate" type="text/html" title="Welcome to My Blog" /><published>2024-03-20T00:00:00+08:00</published><updated>2024-03-20T00:00:00+08:00</updated><id>http://localhost:4000/digital-transformation/2024/03/20/welcome</id><content type="html" xml:base="http://localhost:4000/digital-transformation/2024/03/20/welcome/"><![CDATA[<p><img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479" alt="Modern workspace with laptop and coffee" />
+<em>A modern developer’s workspace</em></p>
+
+<p>Technology has always been at the forefront of human evolution. From the first stone tools to modern quantum computers, our ability to create and innovate has shaped the world we live in.</p>
+
+<h2 id="the-journey-begins">The Journey Begins</h2>
+
+<p>When I first started programming, I was fascinated by the endless possibilities that code could bring to life. Every line of code was a step towards creating something new, something that could potentially change how people interact with technology.</p>
+
+<blockquote>
+  <p>The best way to predict the future is to invent it. - Alan Kay</p>
+</blockquote>
+
+<h3 id="learning-and-growing">Learning and Growing</h3>
+
+<p>The learning process never stops in technology. Every day brings new challenges and opportunities:</p>
+
+<ol>
+  <li>Exploring new frameworks</li>
+  <li>Understanding design patterns</li>
+  <li>Building better user experiences</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welcome to my blog!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Let</span><span class="sh">'</span><span class="s">s explore technology together!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">hello_world</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="why-medium-style">Why Medium Style?</h2>
+
+<p>Medium has revolutionized online reading and writing. Its clean design and typography create an immersive reading experience that puts content first. Some key features include:</p>
+
+<ul>
+  <li>Large, beautiful cover images</li>
+  <li>Clean, readable typography</li>
+  <li>Thoughtful spacing and layout</li>
+  <li>Rich media integration</li>
+</ul>
+
+<h3 id="the-power-of-design">The Power of Design</h3>
+
+<p>Good design isn’t just about aesthetics; it’s about communication. Every element on this page serves a purpose:</p>
+
+<ul>
+  <li><strong>Typography</strong>: Using proper font hierarchy</li>
+  <li><strong>Whitespace</strong>: Giving content room to breathe</li>
+  <li><strong>Images</strong>: Supporting the narrative</li>
+  <li><strong>Code blocks</strong>: Making technical content accessible</li>
+</ul>
+
+<p><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e" alt="Design thinking process" />
+<em>The iterative process of design and development</em></p>
+
+<h2 id="looking-forward">Looking Forward</h2>
+
+<p>This blog will be a place to share thoughts, experiences, and knowledge about technology, design, and everything in between. Stay tuned for more content!</p>]]></content><author><name>XenoDennis</name></author><category term="digital-transformation" /><category term="welcome" /><category term="blog" /><category term="technology" /><summary type="html"><![CDATA[A modern developer’s workspace]]></summary></entry></feed>

@@ -1,0 +1,145 @@
+---
+layout: default
+---
+
+<div class="home-container">
+  <main class="main-content">
+    <div class="post-list">
+      {% assign all_posts = site.posts | where: "lang", page.lang %}
+      {% if page.category %}
+        {% assign posts = all_posts | where: "category", page.category %}
+      {% else %}
+        {% assign posts = all_posts %}
+      {% endif %}
+      
+      {% if page.category %}
+      <header class="category-header">
+        <h1 class="category-title">
+          {% case page.category %}
+            {% when 'digital-transformation' %}
+              {% t categories.digital_transformation %}
+            {% when 'data-science' %}
+              {% t categories.data_science %}
+            {% when 'ai' %}
+              {% t categories.ai %}
+          {% endcase %}
+        </h1>
+      </header>
+      {% endif %}
+
+      {% for post in posts %}
+      <article class="post-preview">
+        <div class="post-content-preview">
+          <div class="post-meta">
+            <div class="author-info">
+              {% if post.author_avatar %}
+              <img src="{{ post.author_avatar }}" alt="{{ post.author }}" class="author-avatar">
+              {% endif %}
+              <div class="author-details">
+                <span class="author-name">{{ post.author }}</span>
+                <div class="post-info">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%b %-d, %Y" }}
+                  </time>
+                  · {% assign words = post.content | number_of_words %}
+                  {% assign read_time = words | divided_by: 180 | plus: 1 %}
+                  {{ read_time }} min read
+                  {% if post.category %}
+                  · <a href="{{ site.baseurl }}/{% if post.lang == 'zh' %}zh/{% endif %}category/{{ post.category }}" class="category-tag">
+                    {% case post.category %}
+                      {% when 'digital-transformation' %}
+                        {% t categories.digital_transformation %}
+                      {% when 'data-science' %}
+                        {% t categories.data_science %}
+                      {% when 'ai' %}
+                        {% t categories.ai %}
+                    {% endcase %}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <h2 class="post-title">
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          
+          {% if post.subtitle %}
+          <p class="post-subtitle">{{ post.subtitle }}</p>
+          {% endif %}
+          
+          <p class="post-excerpt">
+            {{ post.content | strip_html | truncatewords: 30 }}
+          </p>
+        </div>
+        
+        {% if post.cover_image %}
+        <div class="post-thumbnail">
+          <a href="{{ post.url | relative_url }}" class="post-thumbnail-link">
+            <img src="{{ post.cover_image }}" alt="{{ post.title }}" class="thumbnail-image">
+          </a>
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+
+      {% if posts.size == 0 %}
+      <div class="no-posts">
+        <p>{% t global.no_posts %}</p>
+      </div>
+      {% endif %}
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="sticky-sidebar">
+      <nav class="categories">
+        <h3>{% t global.categories %}</h3>
+        <ul>
+          <li>
+            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/digital-transformation" class="category-link {% if page.category == 'digital-transformation' %}active{% endif %}">
+              {% t categories.digital_transformation %}
+              <span class="post-count">
+                {% assign dt_posts = all_posts | where: "category", "digital-transformation" %}
+                {{ dt_posts.size }}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/data-science" class="category-link {% if page.category == 'data-science' %}active{% endif %}">
+              {% t categories.data_science %}
+              <span class="post-count">
+                {% assign ds_posts = all_posts | where: "category", "data-science" %}
+                {{ ds_posts.size }}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}category/ai" class="category-link {% if page.category == 'ai' %}active{% endif %}">
+              {% t categories.ai %}
+              <span class="post-count">
+                {% assign ai_posts = all_posts | where: "category", "ai" %}
+                {{ ai_posts.size }}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+</div>
+
+<!-- Simple Jekyll Search -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '/search.json',
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: '{% t global.no_results %}',
+    limit: 10,
+    fuzzy: false
+  });
+</script> 
