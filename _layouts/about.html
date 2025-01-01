@@ -1,0 +1,161 @@
+---
+layout: default
+---
+
+<div class="about-container">
+  <div class="about-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="hero-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="about-content">
+    {{ content }}
+  </div>
+
+  {% if page.expertise %}
+  <div class="expertise-section">
+    <h2>{{ page.expertise.title }}</h2>
+    <div class="expertise-grid">
+      {% for area in page.expertise.areas %}
+        <div class="expertise-card">
+          <h3>{{ area.title }}</h3>
+          <ul>
+            {% for skill in area.skills %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if page.skills %}
+  <div class="skills-section">
+    <h2>{{ page.skills.title }}</h2>
+    <div class="skills-grid">
+      {% for category in page.skills.categories %}
+        <div class="skill-category">
+          <h3>{{ category.name }}</h3>
+          <div class="skill-tags">
+            {% for skill in category.items %}
+              <span class="skill-tag">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<style>
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(41, 41, 41, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(41, 41, 41, 1);
+  margin-bottom: 4rem;
+}
+
+.expertise-section,
+.skills-section {
+  margin-bottom: 4rem;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.expertise-card {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expertise-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: rgba(41, 41, 41, 1);
+}
+
+.expertise-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.expertise-card li {
+  margin-bottom: 0.5rem;
+  color: rgba(41, 41, 41, 0.9);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-category h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: rgba(41, 41, 41, 1);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(242, 242, 242, 1);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  color: rgba(41, 41, 41, 1);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .expertise-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style> 

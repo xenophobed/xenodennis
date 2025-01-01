@@ -1,69 +1,209 @@
 ---
 layout: default
 ---
-<article class="post" lang="{{ page.lang }}">
-  <header class="post-header">
-    <div class="post-meta">
-      <div class="author-info">
-        <img src="{{ site.baseurl }}/assets/images/avatar.jpg" alt="Author" class="author-avatar">
-        <div class="author-details">
-          <div class="author-name">{{ page.author }}</div>
-          <div class="post-info">
-            <time datetime="{{ page.date | date_to_xmlschema }}">
-              {{ page.date | date: "%B %-d, %Y" }}
-            </time>
-            · {% assign words = content | number_of_words %}
-            {% assign read_time = words | divided_by: 180 | plus: 1 %}
-            {{ read_time }} min read
-            {% if page.category %}
-            · <a href="{{ site.baseurl }}/{{ page.lang }}/category/{{ page.category }}" class="category-tag">
-              {{ site.data.categories[page.category][page.lang] }}
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
+
+<article class="post">
+  {% if page.cover_image %}
+    <div class="post-cover">
+      <img src="{{ page.cover_image }}" alt="{{ page.title }}">
+      {% if page.cover_caption %}
+        <p class="caption">{{ page.cover_caption }}</p>
+      {% endif %}
     </div>
+  {% endif %}
+
+  <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     {% if page.subtitle %}
-    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+      <h2 class="post-subtitle">{{ page.subtitle }}</h2>
     {% endif %}
-    {% if page.cover_image %}
-    <figure class="post-cover">
-      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}">
-      {% if page.cover_caption %}
-      <figcaption>{{ page.cover_caption }}</figcaption>
+    
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d %H:%M:%S %z" }}
+      </time>
+      <span class="read-time">
+        {% assign words = content | strip_html | number_of_words %}
+        {% assign read_time = words | divided_by: 200 | plus: 1 %}
+        {{ read_time }} min read
+      </span>
+      {% if page.categories.size > 0 %}
+        <span class="post-categories">
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/category/{{ category | slugify }}/" class="category-tag">{{ category }}</a>
+          {% endfor %}
+        </span>
       {% endif %}
-    </figure>
-    {% endif %}
+    </div>
   </header>
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  <footer class="post-footer">
-    <div class="tags">
+  {% if page.tags.size > 0 %}
+    <div class="post-tags">
       {% for tag in page.tags %}
-      <a href="{{ site.baseurl }}/{{ page.lang }}/tags/{{ tag }}" class="tag">{{ tag }}</a>
+        <span class="tag">{{ tag }}</span>
       {% endfor %}
     </div>
-    <div class="share-buttons">
-      {% assign page_path = page.url | replace_first: page.lang, '' %}
-      {% capture page_url %}{{ site.url }}{{ site.baseurl }}/{{ page.lang }}{{ page_path }}{% endcapture %}
-      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page_url }}" target="_blank" class="share-button twitter">
-        {{ site.data.ui[page.lang].share_twitter }}
-      </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page_url }}&title={{ page.title | url_encode }}" target="_blank" class="share-button linkedin">
-        {{ site.data.ui[page.lang].share_linkedin }}
-      </a>
-    </div>
-  </footer>
+  {% endif %}
 </article>
 
-<aside class="post-sidebar">
-  <div class="table-of-contents">
-    <h3>{{ site.data.ui[page.lang].table_of_contents }}</h3>
-    <!-- 这里将通过 JavaScript 自动生成目录 -->
-  </div>
-</aside> 
+<style>
+.post {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.post-cover {
+  margin: -2rem -1rem 2rem;
+  height: 400px;
+  overflow: hidden;
+}
+
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-cover .caption {
+  text-align: center;
+  color: rgba(117, 117, 117, 1);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.post-subtitle {
+  font-size: 1.5rem;
+  color: rgba(41, 41, 41, 0.9);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  color: rgba(117, 117, 117, 1);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.post-categories {
+  margin-left: 1rem;
+}
+
+.category-tag {
+  padding: 0.2rem 0.8rem;
+  background: rgba(242, 242, 242, 1);
+  color: rgba(41, 41, 41, 1);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin: 0 0.25rem;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(41, 41, 41, 1);
+}
+
+/* Jupyter Notebook Styles */
+.highlight {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f6f8fa;
+  overflow-x: auto;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 0;
+}
+
+.input_area pre {
+  margin: 0;
+  padding: 0.5rem;
+  background: #f6f8fa;
+  border-radius: 4px;
+}
+
+.output_area pre {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.output_area img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.dataframe {
+  margin: 1rem 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.dataframe th, .dataframe td {
+  padding: 0.5rem;
+  border: 1px solid #e1e4e8;
+}
+
+.dataframe thead th {
+  background: #f6f8fa;
+}
+
+.post-tags {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: rgba(242, 242, 242, 1);
+  color: rgba(117, 117, 117, 1);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .post-cover {
+    height: 300px;
+  }
+}
+</style>
+
+{% if page.jupyter %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
+{% endif %} 

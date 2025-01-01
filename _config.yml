@@ -5,7 +5,11 @@ url: ""
 
 # Build settings
 markdown: kramdown
-permalink: /:categories/:year/:month/:day/:title/
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
 
 # Collections for multilingual content
 collections:
