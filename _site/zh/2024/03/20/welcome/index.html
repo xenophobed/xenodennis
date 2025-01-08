@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>欢迎来到我的博客 - XENODENNIS</title>
     <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
       /* Header styles */
@@ -605,14 +606,16 @@
     
     <div class="post-meta">
       <time datetime="2024-03-20T00:00:00+08:00">
-        2024-03-20 00:00:00 +0800
+        Mar 20, 2024
       </time>
+      <span class="separator">·</span>
       <span class="read-time">
         
         
         1 min read
       </span>
       
+        <span class="separator">·</span>
         <span class="post-categories">
           
             <a href="/xenodennis/category/digital-transformation/" class="category-tag">digital-transformation</a>
@@ -696,10 +699,19 @@
   color: rgba(117, 117, 117, 1);
   font-size: 0.875rem;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.separator {
+  color: rgba(117, 117, 117, 1);
 }
 
 .post-categories {
-  margin-left: 1rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .category-tag {

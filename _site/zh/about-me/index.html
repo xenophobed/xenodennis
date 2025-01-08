@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>关于我 - XENODENNIS</title>
     <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
       /* Header styles */
@@ -587,23 +588,188 @@
     </header>
 
     <main>
-      <div class="about-container">
+      <style>
+/* Common styles */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.section-title i {
+  margin-right: 10px;
+  color: #3b82f6;
+}
+
+/* Education section styles */
+.education-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+}
+
+.main-education {
+  text-align: center;
+  border-bottom: 3px solid #3b82f6;
+}
+
+.education-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.education-meta {
+  color: #4b5563;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.certification-list li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.certification-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.cert-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-header i {
+  color: #3b82f6;
+}
+
+.cert-institution {
+  display: block;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-left: 1.8rem;
+}
+
+/* Contact section styles */
+.contact-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.contact-icon {
+  background: #f3f4f6;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.contact-icon i {
+  font-size: 1.5rem;
+  color: #4b5563;
+}
+
+.contact-item:hover .contact-icon {
+  background: #3b82f6;
+}
+
+.contact-item:hover .contact-icon i {
+  color: white;
+}
+
+.contact-item span {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .education-grid {
+    gap: 1.5rem;
+  }
+  
+  .contact-section {
+    padding: 2rem;
+  }
+}
+</style>
+
+<div class="about-container">
   <!-- Hero Section -->
   <section class="about-hero">
     <div class="hero-content">
-      <h1 class="glitch-text" data-text="XENODENNIS">XENODENNIS</h1>
-      <p class="hero-subtitle">全栈开发工程师 & AI 专家</p>
+      <h1 class="glitch-text" data-text="您的数字化伙伴">您的数字化伙伴</h1>
+      <p class="hero-subtitle">数字化转型顾问 & AI 专家</p>
       <div class="tech-line"></div>
     </div>
   </section>
 
   <!-- Skills Matrix -->
   <section class="skills-matrix">
-    <h2 class="section-title">技术专长</h2>
+    <h2 class="section-title"><i class="fas fa-brain"></i> 技术专长</h2>
     <div class="skills-grid">
       <div class="skill-card" data-category="AI/ML">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-robot"></i>
         </div>
         <h3>人工智能与机器学习</h3>
         <ul class="skill-list">
@@ -616,27 +782,27 @@
       
       <div class="skill-card" data-category="Development">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-chart-line"></i>
         </div>
-        <h3>全栈开发</h3>
+        <h3>数据科学与分析</h3>
         <ul class="skill-list">
-          <li>现代前端框架</li>
-          <li>后端架构</li>
-          <li>云基础设施</li>
-          <li>DevOps 与 CI/CD</li>
+          <li>数据可视化</li>
+          <li>数据工程</li>
+          <li>数据分析</li>
+          <li>数据建模</li>
         </ul>
       </div>
       
       <div class="skill-card" data-category="Architecture">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-digital-tachograph"></i>
         </div>
-        <h3>系统架构</h3>
+        <h3>数字化转型</h3>
         <ul class="skill-list">
-          <li>微服务设计</li>
-          <li>可扩展系统</li>
-          <li>API 开发</li>
-          <li>数据库优化</li>
+          <li>数字化战略</li>
+          <li>云解决方案</li>
+          <li>AI 集成</li>
+          <li>数据治理</li>
         </ul>
       </div>
     </div>
@@ -644,51 +810,127 @@
 
   <!-- Experience Timeline -->
   <section class="experience-timeline">
-    <h2 class="section-title">职业经历</h2>
+    <h2 class="section-title"><i class="fas fa-history"></i> 职业经历</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>高级 AI 工程师</h3>
-          <p class="timeline-date">2022 - 至今</p>
-          <p>领导 AI 集成项目，使用最新技术开发前沿解决方案。</p>
+          <h3>数字化转型与 AI 产品顾问</h3>
+          <p class="timeline-date">2022年10月 - 至今</p>
+          <p>领导创新 AI 解决方案开发，完成多代产品迭代：</p>
+          <ul class="timeline-achievements">
+            <li><strong>第四代 (2024年12月)</strong>: 多智能体架构系统
+              <br>先进的分布式 AI 系统，集成多个专业化智能体</li>
+            <li><strong>第三代 (2024年7月)</strong>: 分布式学习框架
+              <br>轻量级模型架构，支持分布式推理能力</li>
+            <li><strong>第二代 (2023年12月)</strong>: 高级智能体平台
+              <br>多模态集成，支持 Canvas 和增强工具集</li>
+            <li><strong>第一代 (2023年6月)</strong>: AIGC 平台
+              <br>集成 ChatGPT-3.5 和 Midjourney 的营销自动化平台</li>
+          </ul>
         </div>
       </div>
       
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>全栈开发工程师</h3>
-          <p class="timeline-date">2019 - 2022</p>
-          <p>使用现代技术栈架构和开发可扩展的 Web 应用。</p>
+          <h3>首席数据官</h3>
+          <p class="timeline-date">2021 - 2022</p>
+          <p>在致欧科技（深圳上市公司）担任首席数据官，领导大型电商企业的数据战略和数字化转型。</p>
+          <ul class="timeline-achievements">
+            <li><strong>数字化转型</strong>
+              <br>主导端到端业务流程重建和现代化</li>
+            <li><strong>数据体验平台</strong>
+              <br>设计机器学习驱动的电商运营自动化平台</li>
+            <li><strong>供应链优化</strong>
+              <br>实施库存和物流预测分析系统</li>
+          </ul>
         </div>
       </div>
       
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>软件工程师</h3>
-          <p class="timeline-date">2017 - 2019</p>
-          <p>专注于后端开发和系统优化。</p>
+          <h3>首席信息官</h3>
+          <p class="timeline-date">2014 - 2021</p>
+          <p>在柔宇科技（独角兽企业）担任首席信息官，该公司是全球首个柔性显示屏和折叠手机的开创者。</p>
+          <ul class="timeline-achievements">
+            <li><strong>制造数字化</strong>
+              <br>设计并实施柔性显示屏生产的智能自动化制造系统</li>
+            <li><strong>端到端数字化转型</strong>
+              <br>统筹制造、供应链和市场运营的数字化集成</li>
+            <li><strong>数据基础设施</strong>
+              <br>建立企业数据仓库和跨职能 BI 系统</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 教育与认证</h2>
+    <div class="education-grid">
+      <!-- Main Education -->
+      <div class="education-item main-education">
+        <div class="education-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <h3>科罗拉多大学波德分校</h3>
+        <p class="education-meta">数据科学硕士学位</p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="education-item certifications">
+        <h3>专业认证</h3>
+        <ul class="certification-list">
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>强化学习专项认证</strong>
+            </div>
+            <span class="cert-institution">阿尔伯塔大学</span>
+          </li>
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>数据挖掘专项认证</strong>
+            </div>
+            <span class="cert-institution">伊利诺伊大学香槟分校</span>
+          </li>
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>Python 应用数据科学认证</strong>
+            </div>
+            <span class="cert-institution">密歇根大学</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="contact-section">
-    <h2 class="section-title">联系方式</h2>
+    <h2 class="section-title"><i class="fas fa-envelope"></i> 联系方式</h2>
     <div class="contact-grid">
-      <a href="https://github.com/xenodennis" class="contact-item" target="_blank">
+      <a href="https://github.com/xenophobed" class="contact-item" target="_blank">
         <div class="contact-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fab fa-github"></i>
         </div>
         <span>GitHub</span>
       </a>
       
-      <a href="mailto:your-email@example.com" class="contact-item">
+      <a href="https://www.linkedin.com/in/dennis-deng-4b532865/" class="contact-item" target="_blank">
         <div class="contact-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <span>领英</span>
+      </a>
+      
+      <a href="mailto:tmacdennisdddd@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
         </div>
         <span>邮箱</span>
       </a>

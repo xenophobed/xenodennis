@@ -20,14 +20,16 @@ layout: default
     
     <div class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%Y-%m-%d %H:%M:%S %z" }}
+        {{ page.date | date: "%b %-d, %Y" }}
       </time>
+      <span class="separator">·</span>
       <span class="read-time">
         {% assign words = content | strip_html | number_of_words %}
         {% assign read_time = words | divided_by: 200 | plus: 1 %}
         {{ read_time }} min read
       </span>
       {% if page.categories.size > 0 %}
+        <span class="separator">·</span>
         <span class="post-categories">
           {% for category in page.categories %}
             <a href="{{ site.baseurl }}/category/{{ category | slugify }}/" class="category-tag">{{ category }}</a>
@@ -99,10 +101,19 @@ layout: default
   color: rgba(117, 117, 117, 1);
   font-size: 0.875rem;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.separator {
+  color: rgba(117, 117, 117, 1);
 }
 
 .post-categories {
-  margin-left: 1rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .category-tag {

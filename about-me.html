@@ -1,12 +1,10 @@
 ---
 layout: default
-title: 关于我
-permalink: /zh/about-me/
-lang: zh
+title: About Me
+permalink: /about-me/
 ---
 
 <style>
-/* Common styles */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
@@ -20,12 +18,95 @@ lang: zh
   color: #3b82f6;
 }
 
-/* Education section styles */
+.skill-icon i {
+  font-size: 2rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon i {
+  transform: scale(1.1);
+}
+
+.contact-icon i {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon i {
+  transform: scale(1.1);
+}
+
+.timeline-achievements {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.timeline-achievements li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timeline-achievements li:before {
+  content: "•";
+  color: #3b82f6;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.timeline-achievements strong {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.timeline-achievements br {
+  content: "";
+  margin: 0.3rem 0;
+  display: block;
+}
+
 .education-section {
   margin: 4rem 0;
   padding: 2rem;
   background: #f9fafb;
   border-radius: 12px;
+}
+
+.education-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-meta {
+  color: #3b82f6;
+  font-weight: 500;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
 }
 
 .education-grid {
@@ -101,12 +182,11 @@ lang: zh
   margin-left: 1.8rem;
 }
 
-/* Contact section styles */
 .contact-section {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: #f9fafb;
+  background: white;
+  padding: 3rem;
   border-radius: 12px;
+  margin-top: 4rem;
 }
 
 .contact-grid {
@@ -137,13 +217,9 @@ lang: zh
   transition: all 0.3s ease;
 }
 
-.contact-icon i {
-  font-size: 1.5rem;
-  color: #4b5563;
-}
-
 .contact-item:hover .contact-icon {
   background: #3b82f6;
+  transform: translateY(-5px);
 }
 
 .contact-item:hover .contact-icon i {
@@ -168,32 +244,46 @@ lang: zh
     padding: 2rem;
   }
 }
+
+.experience-timeline {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.skills-matrix {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
 </style>
 
 <div class="about-container">
   <!-- Hero Section -->
   <section class="about-hero">
     <div class="hero-content">
-      <h1 class="glitch-text" data-text="您的数字化伙伴">您的数字化伙伴</h1>
-      <p class="hero-subtitle">数字化转型顾问 & AI 专家</p>
+      <h1 class="glitch-text" data-text="Your Digital Partner">Your Digital Partner</h1>
+      <p class="hero-subtitle">Digital Consultant & AI Specialist</p>
       <div class="tech-line"></div>
     </div>
   </section>
 
   <!-- Skills Matrix -->
   <section class="skills-matrix">
-    <h2 class="section-title"><i class="fas fa-brain"></i> 技术专长</h2>
+    <h2 class="section-title"><i class="fas fa-brain"></i> Technical Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card" data-category="AI/ML">
         <div class="skill-icon">
           <i class="fas fa-robot"></i>
         </div>
-        <h3>人工智能与机器学习</h3>
+        <h3>AI & Machine Learning</h3>
         <ul class="skill-list">
-          <li>深度学习与神经网络</li>
-          <li>自然语言处理</li>
-          <li>计算机视觉</li>
-          <li>大语言模型集成与微调</li>
+          <li>Deep Learning & Neural Networks</li>
+          <li>Natural Language Processing</li>
+          <li>Computer Vision</li>
+          <li>LLM Integration & Fine-tuning</li>
         </ul>
       </div>
       
@@ -201,12 +291,12 @@ lang: zh
         <div class="skill-icon">
           <i class="fas fa-chart-line"></i>
         </div>
-        <h3>数据科学与分析</h3>
+        <h3>Data Science & Analytics</h3>
         <ul class="skill-list">
-          <li>数据可视化</li>
-          <li>数据工程</li>
-          <li>数据分析</li>
-          <li>数据建模</li>
+          <li>Data Visualization</li>
+          <li>Data Engineering</li>
+          <li>Data Analysis</li>
+          <li>Data Modeling</li>
         </ul>
       </div>
       
@@ -214,12 +304,12 @@ lang: zh
         <div class="skill-icon">
           <i class="fas fa-digital-tachograph"></i>
         </div>
-        <h3>数字化转型</h3>
+        <h3>Digital Transformation</h3>
         <ul class="skill-list">
-          <li>数字化战略</li>
-          <li>云解决方案</li>
-          <li>AI 集成</li>
-          <li>数据治理</li>
+          <li>Digital Strategy</li>
+          <li>Cloud Solutions</li>
+          <li>AI Integration</li>
+          <li>Data Governance</li>
         </ul>
       </div>
     </div>
@@ -227,23 +317,23 @@ lang: zh
 
   <!-- Experience Timeline -->
   <section class="experience-timeline">
-    <h2 class="section-title"><i class="fas fa-history"></i> 职业经历</h2>
+    <h2 class="section-title"><i class="fas fa-history"></i> Professional Journey</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>数字化转型与 AI 产品顾问</h3>
-          <p class="timeline-date">2022年10月 - 至今</p>
-          <p>领导创新 AI 解决方案开发，完成多代产品迭代：</p>
+          <h3>Digital Transformation & AI Product Consultant</h3>
+          <p class="timeline-date">Oct 2022 - Present</p>
+          <p>Leading innovative AI solutions development with multiple product generations:</p>
           <ul class="timeline-achievements">
-            <li><strong>第四代 (2024年12月)</strong>: 多智能体架构系统
-              <br>先进的分布式 AI 系统，集成多个专业化智能体</li>
-            <li><strong>第三代 (2024年7月)</strong>: 分布式学习框架
-              <br>轻量级模型架构，支持分布式推理能力</li>
-            <li><strong>第二代 (2023年12月)</strong>: 高级智能体平台
-              <br>多模态集成，支持 Canvas 和增强工具集</li>
-            <li><strong>第一代 (2023年6月)</strong>: AIGC 平台
-              <br>集成 ChatGPT-3.5 和 Midjourney 的营销自动化平台</li>
+            <li><strong>Gen 4 (Dec 2024)</strong>: Multi-Agent Architecture System
+              <br>Advanced distributed AI system with multiple specialized agents</li>
+            <li><strong>Gen 3 (Jul 2024)</strong>: Distributed Learning Framework
+              <br>Lightweight model architecture with distributed inference capabilities</li>
+            <li><strong>Gen 2 (Dec 2023)</strong>: Advanced Agent Platform
+              <br>Multimodal integration with Canvas support and enhanced tooling</li>
+            <li><strong>Gen 1 (Jun 2023)</strong>: AIGC Platform
+              <br>Integration of ChatGPT-3.5 and Midjourney for marketing automation</li>
           </ul>
         </div>
       </div>
@@ -251,16 +341,16 @@ lang: zh
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>首席数据官</h3>
+          <h3>Chief Data Officer</h3>
           <p class="timeline-date">2021 - 2022</p>
-          <p>在致欧科技（深圳上市公司）担任首席数据官，领导大型电商企业的数据战略和数字化转型。</p>
+          <p>Led data strategy and digital transformation at Ziel (China Shenzhen Listed), a major e-commerce enterprise.</p>
           <ul class="timeline-achievements">
-            <li><strong>数字化转型</strong>
-              <br>主导端到端业务流程重建和现代化</li>
-            <li><strong>数据体验平台</strong>
-              <br>设计机器学习驱动的电商运营自动化平台</li>
-            <li><strong>供应链优化</strong>
-              <br>实施库存和物流预测分析系统</li>
+            <li><strong>Digital Transformation</strong>
+              <br>Spearheaded end-to-end business process rebuild and modernization</li>
+            <li><strong>Data Experience Platform</strong>
+              <br>Architected ML-powered platform for automated e-commerce operations</li>
+            <li><strong>Supply Chain Optimization</strong>
+              <br>Implemented predictive analytics for inventory and logistics optimization</li>
           </ul>
         </div>
       </div>
@@ -268,16 +358,16 @@ lang: zh
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>首席信息官</h3>
+          <h3>Chief Information Officer</h3>
           <p class="timeline-date">2014 - 2021</p>
-          <p>在柔宇科技（独角兽企业）担任首席信息官，该公司是全球首个柔性显示屏和折叠手机的开创者。</p>
+          <p>Led digital strategy at Royole (Unicorn), pioneer of the world's first flexible display and foldable smartphone.</p>
           <ul class="timeline-achievements">
-            <li><strong>制造数字化</strong>
-              <br>设计并实施柔性显示屏生产的智能自动化制造系统</li>
-            <li><strong>端到端数字化转型</strong>
-              <br>统筹制造、供应链和市场运营的数字化集成</li>
-            <li><strong>数据基础设施</strong>
-              <br>建立企业数据仓库和跨职能 BI 系统</li>
+            <li><strong>Manufacturing Digitalization</strong>
+              <br>Designed and implemented intelligent automated manufacturing systems for flexible display production</li>
+            <li><strong>End-to-End Digital Transformation</strong>
+              <br>Orchestrated digital integration across manufacturing, supply chain, and marketplace operations</li>
+            <li><strong>Data Infrastructure</strong>
+              <br>Established enterprise data warehouse and cross-functional BI systems</li>
           </ul>
         </div>
       </div>
@@ -286,41 +376,41 @@ lang: zh
 
   <!-- Education Section -->
   <section class="education-section">
-    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 教育与认证</h2>
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
     <div class="education-grid">
       <!-- Main Education -->
       <div class="education-item main-education">
         <div class="education-icon">
           <i class="fas fa-university"></i>
         </div>
-        <h3>科罗拉多大学波德分校</h3>
-        <p class="education-meta">数据科学硕士学位</p>
+        <h3>University of Colorado Boulder</h3>
+        <p class="education-meta">Master's Degree in Data Science</p>
       </div>
 
       <!-- Certifications -->
       <div class="education-item certifications">
-        <h3>专业认证</h3>
+        <h3>Professional Certifications</h3>
         <ul class="certification-list">
           <li>
             <div class="cert-header">
               <i class="fas fa-certificate"></i>
-              <strong>强化学习专项认证</strong>
+              <strong>Reinforcement Learning Specialization</strong>
             </div>
-            <span class="cert-institution">阿尔伯塔大学</span>
+            <span class="cert-institution">University of Alberta</span>
           </li>
           <li>
             <div class="cert-header">
               <i class="fas fa-certificate"></i>
-              <strong>数据挖掘专项认证</strong>
+              <strong>Data Mining Specialization</strong>
             </div>
-            <span class="cert-institution">伊利诺伊大学香槟分校</span>
+            <span class="cert-institution">University of Illinois Urbana-Champaign</span>
           </li>
           <li>
             <div class="cert-header">
               <i class="fas fa-certificate"></i>
-              <strong>Python 应用数据科学认证</strong>
+              <strong>Applied Data Science with Python</strong>
             </div>
-            <span class="cert-institution">密歇根大学</span>
+            <span class="cert-institution">University of Michigan</span>
           </li>
         </ul>
       </div>
@@ -329,7 +419,7 @@ lang: zh
 
   <!-- Contact Section -->
   <section class="contact-section">
-    <h2 class="section-title"><i class="fas fa-envelope"></i> 联系方式</h2>
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Connect</h2>
     <div class="contact-grid">
       <a href="https://github.com/xenophobed" class="contact-item" target="_blank">
         <div class="contact-icon">
@@ -342,14 +432,14 @@ lang: zh
         <div class="contact-icon">
           <i class="fab fa-linkedin"></i>
         </div>
-        <span>领英</span>
+        <span>LinkedIn</span>
       </a>
       
       <a href="mailto:tmacdennisdddd@gmail.com" class="contact-item">
         <div class="contact-icon">
           <i class="fas fa-envelope"></i>
         </div>
-        <span>邮箱</span>
+        <span>Email</span>
       </a>
     </div>
   </section>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Me - XENODENNIS</title>
     <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
       /* Header styles */
@@ -587,23 +588,279 @@
     </header>
 
     <main>
-      <div class="about-container">
+      <style>
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.section-title i {
+  margin-right: 10px;
+  color: #3b82f6;
+}
+
+.skill-icon i {
+  font-size: 2rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon i {
+  transform: scale(1.1);
+}
+
+.contact-icon i {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon i {
+  transform: scale(1.1);
+}
+
+.timeline-achievements {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.timeline-achievements li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timeline-achievements li:before {
+  content: "•";
+  color: #3b82f6;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.timeline-achievements strong {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.timeline-achievements br {
+  content: "";
+  margin: 0.3rem 0;
+  display: block;
+}
+
+.education-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.education-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-meta {
+  color: #3b82f6;
+  font-weight: 500;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+}
+
+.main-education {
+  text-align: center;
+  border-bottom: 3px solid #3b82f6;
+}
+
+.education-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.education-meta {
+  color: #4b5563;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.certification-list li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.certification-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.cert-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-header i {
+  color: #3b82f6;
+}
+
+.cert-institution {
+  display: block;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-left: 1.8rem;
+}
+
+.contact-section {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  margin-top: 4rem;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.contact-icon {
+  background: #f3f4f6;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  background: #3b82f6;
+  transform: translateY(-5px);
+}
+
+.contact-item:hover .contact-icon i {
+  color: white;
+}
+
+.contact-item span {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .education-grid {
+    gap: 1.5rem;
+  }
+  
+  .contact-section {
+    padding: 2rem;
+  }
+}
+
+.experience-timeline {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.skills-matrix {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+</style>
+
+<div class="about-container">
   <!-- Hero Section -->
   <section class="about-hero">
     <div class="hero-content">
-      <h1 class="glitch-text" data-text="XENODENNIS">XENODENNIS</h1>
-      <p class="hero-subtitle">Full Stack Developer & AI Specialist</p>
+      <h1 class="glitch-text" data-text="Your Digital Partner">Your Digital Partner</h1>
+      <p class="hero-subtitle">Digital Consultant & AI Specialist</p>
       <div class="tech-line"></div>
     </div>
   </section>
 
   <!-- Skills Matrix -->
   <section class="skills-matrix">
-    <h2 class="section-title">Technical Expertise</h2>
+    <h2 class="section-title"><i class="fas fa-brain"></i> Technical Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card" data-category="AI/ML">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-robot"></i>
         </div>
         <h3>AI & Machine Learning</h3>
         <ul class="skill-list">
@@ -616,27 +873,27 @@
       
       <div class="skill-card" data-category="Development">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-chart-line"></i>
         </div>
-        <h3>Full Stack Development</h3>
+        <h3>Data Science & Analytics</h3>
         <ul class="skill-list">
-          <li>Modern Frontend Frameworks</li>
-          <li>Backend Architecture</li>
-          <li>Cloud Infrastructure</li>
-          <li>DevOps & CI/CD</li>
+          <li>Data Visualization</li>
+          <li>Data Engineering</li>
+          <li>Data Analysis</li>
+          <li>Data Modeling</li>
         </ul>
       </div>
       
       <div class="skill-card" data-category="Architecture">
         <div class="skill-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fas fa-digital-tachograph"></i>
         </div>
-        <h3>System Architecture</h3>
+        <h3>Digital Transformation</h3>
         <ul class="skill-list">
-          <li>Microservices Design</li>
-          <li>Scalable Systems</li>
-          <li>API Development</li>
-          <li>Database Optimization</li>
+          <li>Digital Strategy</li>
+          <li>Cloud Solutions</li>
+          <li>AI Integration</li>
+          <li>Data Governance</li>
         </ul>
       </div>
     </div>
@@ -644,51 +901,127 @@
 
   <!-- Experience Timeline -->
   <section class="experience-timeline">
-    <h2 class="section-title">Professional Journey</h2>
+    <h2 class="section-title"><i class="fas fa-history"></i> Professional Journey</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Senior AI Engineer</h3>
-          <p class="timeline-date">2022 - Present</p>
-          <p>Leading AI integration projects and developing cutting-edge solutions using latest technologies.</p>
+          <h3>Digital Transformation & AI Product Consultant</h3>
+          <p class="timeline-date">Oct 2022 - Present</p>
+          <p>Leading innovative AI solutions development with multiple product generations:</p>
+          <ul class="timeline-achievements">
+            <li><strong>Gen 4 (Dec 2024)</strong>: Multi-Agent Architecture System
+              <br>Advanced distributed AI system with multiple specialized agents</li>
+            <li><strong>Gen 3 (Jul 2024)</strong>: Distributed Learning Framework
+              <br>Lightweight model architecture with distributed inference capabilities</li>
+            <li><strong>Gen 2 (Dec 2023)</strong>: Advanced Agent Platform
+              <br>Multimodal integration with Canvas support and enhanced tooling</li>
+            <li><strong>Gen 1 (Jun 2023)</strong>: AIGC Platform
+              <br>Integration of ChatGPT-3.5 and Midjourney for marketing automation</li>
+          </ul>
         </div>
       </div>
       
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Full Stack Developer</h3>
-          <p class="timeline-date">2019 - 2022</p>
-          <p>Architected and developed scalable web applications using modern tech stack.</p>
+          <h3>Chief Data Officer</h3>
+          <p class="timeline-date">2021 - 2022</p>
+          <p>Led data strategy and digital transformation at Ziel (China Shenzhen Listed), a major e-commerce enterprise.</p>
+          <ul class="timeline-achievements">
+            <li><strong>Digital Transformation</strong>
+              <br>Spearheaded end-to-end business process rebuild and modernization</li>
+            <li><strong>Data Experience Platform</strong>
+              <br>Architected ML-powered platform for automated e-commerce operations</li>
+            <li><strong>Supply Chain Optimization</strong>
+              <br>Implemented predictive analytics for inventory and logistics optimization</li>
+          </ul>
         </div>
       </div>
       
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Software Engineer</h3>
-          <p class="timeline-date">2017 - 2019</p>
-          <p>Focused on backend development and system optimization.</p>
+          <h3>Chief Information Officer</h3>
+          <p class="timeline-date">2014 - 2021</p>
+          <p>Led digital strategy at Royole (Unicorn), pioneer of the world's first flexible display and foldable smartphone.</p>
+          <ul class="timeline-achievements">
+            <li><strong>Manufacturing Digitalization</strong>
+              <br>Designed and implemented intelligent automated manufacturing systems for flexible display production</li>
+            <li><strong>End-to-End Digital Transformation</strong>
+              <br>Orchestrated digital integration across manufacturing, supply chain, and marketplace operations</li>
+            <li><strong>Data Infrastructure</strong>
+              <br>Established enterprise data warehouse and cross-functional BI systems</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+    <div class="education-grid">
+      <!-- Main Education -->
+      <div class="education-item main-education">
+        <div class="education-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <h3>University of Colorado Boulder</h3>
+        <p class="education-meta">Master's Degree in Data Science</p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="education-item certifications">
+        <h3>Professional Certifications</h3>
+        <ul class="certification-list">
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>Reinforcement Learning Specialization</strong>
+            </div>
+            <span class="cert-institution">University of Alberta</span>
+          </li>
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>Data Mining Specialization</strong>
+            </div>
+            <span class="cert-institution">University of Illinois Urbana-Champaign</span>
+          </li>
+          <li>
+            <div class="cert-header">
+              <i class="fas fa-certificate"></i>
+              <strong>Applied Data Science with Python</strong>
+            </div>
+            <span class="cert-institution">University of Michigan</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="contact-section">
-    <h2 class="section-title">Connect</h2>
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Connect</h2>
     <div class="contact-grid">
-      <a href="https://github.com/xenodennis" class="contact-item" target="_blank">
+      <a href="https://github.com/xenophobed" class="contact-item" target="_blank">
         <div class="contact-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fab fa-github"></i>
         </div>
         <span>GitHub</span>
       </a>
       
-      <a href="mailto:your-email@example.com" class="contact-item">
+      <a href="https://www.linkedin.com/in/dennis-deng-4b532865/" class="contact-item" target="_blank">
         <div class="contact-icon">
-          <svg class="tech-hexagon"></svg>
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+      
+      <a href="mailto:tmacdennisdddd@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
         </div>
         <span>Email</span>
       </a>

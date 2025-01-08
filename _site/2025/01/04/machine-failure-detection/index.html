@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>数字化顾问 &amp; 数据科学家 &amp; AI 解决方案专家 - XENODENNIS</title>
+    <title>Machine Failure Detection Using Machine Learning - XENODENNIS</title>
     <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
       /* Header styles */
@@ -552,7 +553,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="/xenodennis/zh/" class="site-title">
+          <a href="/xenodennis/" class="site-title">
             <img src="/xenodennis/assets/images/logo.svg" alt="XENODENNIS" class="site-logo">
             <img src="/xenodennis/assets/images/title.svg" alt="XENODENNIS" class="site-title-svg">
           </a>
@@ -562,24 +563,24 @@
           <nav class="site-nav">
             
             
-              <a class="nav-link " href="/xenodennis/zh/">首页</a>
-              <a class="nav-link " href="/xenodennis/zh/about-me/">关于我</a>
-              <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+              <a class="nav-link " href="/xenodennis/">Home</a>
+              <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+              <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
             
           </nav>
         </div>
 
         <div class="header-right">
           <div class="search-container">
-            <input type="text" id="search-input" placeholder="搜索文章和页面...">
+            <input type="text" id="search-input" placeholder="Search posts and pages...">
             <ul id="search-results"></ul>
           </div>
           
           <div class="lang-switcher">
             
-              <a class="lang-link" href="/xenodennis/">EN</a>
+              <a class="lang-link active" href="/xenodennis/">EN</a>
               <span class="lang-separator">|</span>
-              <a class="lang-link active" href="/xenodennis/zh/">中</a>
+              <a class="lang-link" href="/xenodennis/zh/">中</a>
             
           </div>
         </div>
@@ -587,226 +588,300 @@
     </header>
 
     <main>
-      <div class="about-container">
-  <div class="about-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">数字化顾问 & 数据科学家 & AI 解决方案专家</h1>
+      <article class="post">
+  
+    <div class="post-cover">
+      <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80" alt="Machine Failure Detection Using Machine Learning">
       
-        <p class="hero-subtitle">通过数据驱动创新和人工智能解决方案推动企业转型</p>
+        <p class="caption">Industrial machinery and predictive maintenance</p>
       
     </div>
-  </div>
-
-  <div class="about-content">
-    <p>拥有数据科学硕士学位，曾在独角兽企业和上市公司担任 CIO/CDO，在数字化转型领域积累了丰富的技术专长和商业洞察。</p>
-
-<p>我的职业生涯横跨战略规划、技术领导力和创新 AI 解决方案实施。专注于帮助组织利用前沿技术解决复杂的业务挑战并推动增长。</p>
-
-  </div>
-
   
-  <div class="expertise-section">
-    <h2>专业领域</h2>
-    <div class="expertise-grid">
+
+  <header class="post-header">
+    <h1 class="post-title">Machine Failure Detection Using Machine Learning</h1>
+    
+      <h2 class="post-subtitle">A Case Study from University of Colorado Boulder ML Course</h2>
+    
+    
+    <div class="post-meta">
+      <time datetime="2025-01-04T00:00:00+08:00">
+        Jan 4, 2025
+      </time>
+      <span class="separator">·</span>
+      <span class="read-time">
+        
+        
+        2 min read
+      </span>
       
-        <div class="expertise-card">
-          <h3>业务与战略</h3>
-          <ul>
-            
-              <li>业务架构</li>
-            
-              <li>数字化战略规划</li>
-            
-              <li>数字化转型</li>
-            
-          </ul>
-        </div>
-      
-        <div class="expertise-card">
-          <h3>技术领导力</h3>
-          <ul>
-            
-              <li>Python 开发</li>
-            
-              <li>系统架构</li>
-            
-              <li>云解决方案</li>
-            
-          </ul>
-        </div>
-      
-        <div class="expertise-card">
-          <h3>数据与人工智能</h3>
-          <ul>
-            
-              <li>机器学习</li>
-            
-              <li>深度学习</li>
-            
-              <li>强化学习</li>
-            
-          </ul>
-        </div>
+        <span class="separator">·</span>
+        <span class="post-categories">
+          
+            <a href="/xenodennis/category/machine-learning/" class="category-tag">machine-learning</a>
+          
+            <a href="/xenodennis/category/case-study/" class="category-tag">case-study</a>
+          
+        </span>
       
     </div>
+  </header>
+
+  <div class="post-content">
+    <h2 id="project-overview">Project Overview</h2>
+
+<p>This case study explores the application of Machine Learning in predicting machine failures, a critical aspect of predictive maintenance in industrial settings. The project was completed as part of the Machine Learning course at the University of Colorado Boulder.</p>
+
+<h2 id="problem-statement">Problem Statement</h2>
+
+<p>In modern manufacturing, unexpected machine failures can lead to significant production losses and maintenance costs. This project aims to develop a machine learning model that can predict potential machine failures before they occur, enabling proactive maintenance.</p>
+
+<h2 id="dataset-and-features">Dataset and Features</h2>
+
+<p>The dataset includes various sensor measurements and machine parameters:</p>
+<ul>
+  <li>Air temperature</li>
+  <li>Process temperature</li>
+  <li>Rotational speed</li>
+  <li>Torque</li>
+  <li>Tool wear</li>
+  <li>Machine failure indicators</li>
+</ul>
+
+<h2 id="methodology">Methodology</h2>
+
+<p>The analysis follows these key steps:</p>
+
+<ol>
+  <li><strong>Data Preprocessing</strong>
+    <ul>
+      <li>Feature scaling and normalization</li>
+      <li>Handling imbalanced classes</li>
+      <li>Feature engineering</li>
+    </ul>
+  </li>
+  <li><strong>Model Development</strong>
+    <ul>
+      <li>Multiple models comparison (Random Forest, XGBoost, etc.)</li>
+      <li>Hyperparameter tuning</li>
+      <li>Cross-validation</li>
+    </ul>
+  </li>
+  <li><strong>Performance Evaluation</strong>
+    <ul>
+      <li>Precision, Recall, F1-Score</li>
+      <li>ROC-AUC analysis</li>
+      <li>Confusion Matrix</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="key-findings">Key Findings</h2>
+
+<p>[Note: You can find the complete technical implementation and detailed analysis in my <a href="https://github.com/xenophobed/Notebooks/blob/main/ML/Colorado_Bolder_ML_Final_Machine_Failure_Detection.ipynb">GitHub repository</a>]</p>
+
+<h2 id="business-impact">Business Impact</h2>
+
+<p>This predictive maintenance solution can help manufacturing companies:</p>
+<ul>
+  <li>Reduce unexpected downtime</li>
+  <li>Optimize maintenance schedules</li>
+  <li>Lower maintenance costs</li>
+  <li>Extend machine lifetime</li>
+</ul>
+
+<h2 id="technical-implementation">Technical Implementation</h2>
+
+<p>For those interested in the technical details, the project uses:</p>
+<ul>
+  <li>Python for data analysis and modeling</li>
+  <li>Scikit-learn for machine learning algorithms</li>
+  <li>Pandas for data manipulation</li>
+  <li>Matplotlib and Seaborn for visualization</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The project demonstrates the practical application of machine learning in industrial settings, showing how data-driven approaches can transform traditional maintenance practices into proactive strategies.</p>
+
   </div>
-  
 
   
-  <div class="skills-section">
-    <h2>专业技能</h2>
-    <div class="skills-grid">
+    <div class="post-tags">
       
-        <div class="skill-category">
-          <h3>领导力</h3>
-          <div class="skill-tags">
-            
-              <span class="skill-tag">CIO/CDO 经验</span>
-            
-              <span class="skill-tag">战略规划</span>
-            
-              <span class="skill-tag">团队管理</span>
-            
-          </div>
-        </div>
+        <span class="tag">python</span>
       
-        <div class="skill-category">
-          <h3>技术</h3>
-          <div class="skill-tags">
-            
-              <span class="skill-tag">Python</span>
-            
-              <span class="skill-tag">云计算</span>
-            
-              <span class="skill-tag">系统设计</span>
-            
-          </div>
-        </div>
+        <span class="tag">ml</span>
       
-        <div class="skill-category">
-          <h3>数据科学</h3>
-          <div class="skill-tags">
-            
-              <span class="skill-tag">机器学习</span>
-            
-              <span class="skill-tag">深度学习</span>
-            
-              <span class="skill-tag">数据分析</span>
-            
-          </div>
-        </div>
+        <span class="tag">predictive-maintenance</span>
       
     </div>
-  </div>
   
-</div>
+</article>
 
 <style>
-.about-container {
-  max-width: 1200px;
+.post {
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-.about-hero {
-  text-align: center;
-  margin-bottom: 4rem;
+.post-cover {
+  margin: -2rem -1rem 2rem;
+  height: 400px;
+  overflow: hidden;
 }
 
-.hero-title {
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-cover .caption {
+  text-align: center;
+  color: rgba(117, 117, 117, 1);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
+.post-subtitle {
+  font-size: 1.5rem;
   color: rgba(41, 41, 41, 0.9);
-  max-width: 600px;
-  margin: 0 auto;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }
 
-.about-content {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(41, 41, 41, 1);
-  margin-bottom: 4rem;
-}
-
-.expertise-section,
-.skills-section {
-  margin-bottom: 4rem;
-}
-
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.expertise-card {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.expertise-card h3 {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  color: rgba(41, 41, 41, 1);
-}
-
-.expertise-card ul {
-  margin: 0;
-  padding-left: 1.5rem;
-}
-
-.expertise-card li {
-  margin-bottom: 0.5rem;
-  color: rgba(41, 41, 41, 0.9);
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.skill-category h3 {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  color: rgba(41, 41, 41, 1);
-}
-
-.skill-tags {
+.post-meta {
+  color: rgba(117, 117, 117, 1);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
-.skill-tag {
-  padding: 0.5rem 1rem;
+.separator {
+  color: rgba(117, 117, 117, 1);
+}
+
+.post-categories {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.category-tag {
+  padding: 0.2rem 0.8rem;
   background: rgba(242, 242, 242, 1);
+  color: rgba(41, 41, 41, 1);
   border-radius: 100px;
   font-size: 0.875rem;
+  text-decoration: none;
+  margin: 0 0.25rem;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: rgba(41, 41, 41, 1);
 }
 
+/* Jupyter Notebook Styles */
+.highlight {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f6f8fa;
+  overflow-x: auto;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 0;
+}
+
+.input_area pre {
+  margin: 0;
+  padding: 0.5rem;
+  background: #f6f8fa;
+  border-radius: 4px;
+}
+
+.output_area pre {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.output_area img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.dataframe {
+  margin: 1rem 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.dataframe th, .dataframe td {
+  padding: 0.5rem;
+  border: 1px solid #e1e4e8;
+}
+
+.dataframe thead th {
+  background: #f6f8fa;
+}
+
+.post-tags {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(230, 230, 230, 1);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: rgba(242, 242, 242, 1);
+  color: rgba(117, 117, 117, 1);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+}
+
 @media (max-width: 768px) {
-  .hero-title {
+  .post-title {
     font-size: 2rem;
   }
   
-  .expertise-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .post-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .post-cover {
+    height: 300px;
   }
 }
-</style> 
+</style>
+
+ 
     </main>
 
     <footer class="site-footer">
@@ -828,7 +903,7 @@
         resultsContainer: searchResults,
         json: '/xenodennis/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: '未找到结果',
+        noResultsText: 'No results found',
         limit: 10,
         fuzzy: false,
         success: function() {
@@ -860,12 +935,12 @@
     <div class="mobile-nav">
       <nav>
         
-          <a class="nav-link " href="/xenodennis/zh/">首页</a>
-          <a class="nav-link " href="/xenodennis/zh/about-me/">关于我</a>
-          <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+          <a class="nav-link " href="/xenodennis/">Home</a>
+          <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+          <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
         
         <div class="search-container">
-          <input type="text" id="mobile-search-input" placeholder="搜索文章和页面...">
+          <input type="text" id="mobile-search-input" placeholder="Search posts and pages...">
           <ul id="mobile-search-results"></ul>
         </div>
       </nav>
