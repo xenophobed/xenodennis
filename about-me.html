@@ -258,6 +258,82 @@ permalink: /about-me/
   background: #f9fafb;
   border-radius: 12px;
 }
+
+/* Case Studies Section Styles */
+.case-studies {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.case-study-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.case-study-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.case-meta {
+  color: #3b82f6;
+  font-weight: 500;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.feature-group {
+  margin-bottom: 2rem;
+}
+
+.feature-group:last-child {
+  margin-bottom: 0;
+}
+
+.feature-group h4 {
+  color: #1f2937;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-group h4 i {
+  color: #3b82f6;
+}
+
+.feature-group ul {
+  list-style: none;
+  padding-left: 1.8rem;
+  margin: 0;
+}
+
+.feature-group ul li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.feature-group ul li::before {
+  content: "•";
+  color: #3b82f6;
+  position: absolute;
+  left: -1.2rem;
+}
+
+@media (max-width: 768px) {
+  .case-study-item {
+    padding: 1.5rem;
+  }
+  
+  .feature-group {
+    margin-bottom: 1.5rem;
+  }
+}
 </style>
 
 <div class="about-container">
@@ -369,6 +445,63 @@ permalink: /about-me/
             <li><strong>Data Infrastructure</strong>
               <br>Established enterprise data warehouse and cross-functional BI systems</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="case-studies">
+    <h2 class="section-title"><i class="fas fa-lightbulb"></i> Featured Case Study</h2>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <h3>isAssistant Platform</h3>
+        <p class="case-meta">AI-Powered Enterprise Assistant Platform</p>
+        
+        <div class="case-content">
+          <div class="feature-group">
+            <h4><i class="fas fa-check-circle"></i> Reliable Response System</h4>
+            <ul>
+              <li>Comprehensive capability assessment for each request</li>
+              <li>Context-aware response generation</li>
+              <li>Short-term and long-term memory management</li>
+              <li>Automatic human handoff for low-confidence scenarios</li>
+              <li>Continuous learning from human responses</li>
+            </ul>
+          </div>
+
+          <div class="feature-group">
+            <h4><i class="fas fa-network-wired"></i> Flexible Node Architecture</h4>
+            <ul>
+              <li>Multiple node types (Agent, Tool, Chain nodes)</li>
+              <li>Dynamic role-based nodes (Planning, Routing, Context)</li>
+              <li>Hot-pluggable capability-based node discovery</li>
+              <li>Advanced workflow management</li>
+              <li>Multi-graph architecture with sub-graph orchestration</li>
+            </ul>
+          </div>
+
+          <div class="feature-group">
+            <h4><i class="fas fa-layer-group"></i> Comprehensive Service Integration</h4>
+            <ul>
+              <li>Multi-modal AI services (OpenAI, Claude, Llama, Qwen)</li>
+              <li>Vector stores and graph services (Neo4j, Qdrant, Milvus)</li>
+              <li>Browser automation and video processing</li>
+              <li>Voice UI and adaptive agent framework</li>
+              <li>Multi-channel communication (WeChat, WhatsApp, Email)</li>
+            </ul>
+          </div>
+
+          <div class="feature-group">
+            <h4><i class="fas fa-brain"></i> Advanced AI Capabilities</h4>
+            <ul>
+              <li>Automated data collection and labeling</li>
+              <li>User segmentation and topic analysis</li>
+              <li>Predictive user needs analysis</li>
+              <li>Dynamic response optimization</li>
+              <li>Automated workflow orchestration</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
