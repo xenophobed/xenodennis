@@ -4,6 +4,9 @@ title: "SF_AI之旅: Github Dev Tools"
 date: 2025-03-25
 categories: AI开发
 tags: [AI, Dev]
+cover_image: https://unsplash.com/photos/black-and-white-penguin-toy-wX2L8L-fGeA
+cover_caption: "Opensource AI Tool Develop"
+lang: zh
 ---
 
 # SF_AI：遇见未来，遇见更简单的AI开发
