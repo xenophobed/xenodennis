@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
+    <link rel="icon" type="image/png" href="{{ "/assets/images/isA.png" | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/isA.png" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     {% if jekyll.environment == "production" %}
@@ -18,8 +20,15 @@
         right: 0;
         z-index: 1000;
         background: white;
-        height: 60px;
+        height: 80px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      .site-logo {
+        height: 60px;
+        width: auto;
+        display: block;
+        padding: 10px 0;
       }
 
       .header-inner {
@@ -42,7 +51,7 @@
       .home-hero,
       .about-hero,
       .services-hero {
-        margin-top: 60px;
+        margin-top: 80px;
         min-height: 400px;
         background-size: cover;
         background-position: center;
@@ -147,7 +156,12 @@
       /* Mobile responsive styles */
       @media (max-width: 768px) {
         .site-header {
-          height: 50px;
+          height: 70px;  /* Adjusted for mobile */
+        }
+
+        .site-logo {
+          height: 50px;  /* Adjusted for mobile */
+          padding: 8px 0;
         }
 
         .header-inner {
@@ -161,7 +175,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -378,7 +392,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -404,7 +418,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
           background: none;
@@ -556,8 +570,7 @@
       <div class="header-inner">
         <div class="header-left">
           <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}" class="site-title">
-            <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="{{ site.title }}" class="site-logo">
-            <img src="{{ site.baseurl }}/assets/images/title.svg" alt="{{ site.title }}" class="site-title-svg">
+            <img src="{{ site.baseurl }}/assets/images/isA.png" alt="{{ site.title }}" class="site-logo">
           </a>
         </div>
 

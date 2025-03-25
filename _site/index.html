@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>XENODENNIS</title>
-    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <title>isA</title>
+    <link rel="icon" type="image/png" href="/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/assets/images/isA.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -16,8 +18,15 @@
         right: 0;
         z-index: 1000;
         background: white;
-        height: 60px;
+        height: 80px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      .site-logo {
+        height: 60px;
+        width: auto;
+        display: block;
+        padding: 10px 0;
       }
 
       .header-inner {
@@ -40,7 +49,7 @@
       .home-hero,
       .about-hero,
       .services-hero {
-        margin-top: 60px;
+        margin-top: 80px;
         min-height: 400px;
         background-size: cover;
         background-position: center;
@@ -145,7 +154,12 @@
       /* Mobile responsive styles */
       @media (max-width: 768px) {
         .site-header {
-          height: 50px;
+          height: 70px;  /* Adjusted for mobile */
+        }
+
+        .site-logo {
+          height: 50px;  /* Adjusted for mobile */
+          padding: 8px 0;
         }
 
         .header-inner {
@@ -159,7 +173,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -376,7 +390,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -402,7 +416,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
           background: none;
@@ -553,9 +567,8 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="/xenodennis/" class="site-title">
-            <img src="/xenodennis/assets/images/logo.svg" alt="XENODENNIS" class="site-logo">
-            <img src="/xenodennis/assets/images/title.svg" alt="XENODENNIS" class="site-title-svg">
+          <a href="/" class="site-title">
+            <img src="/assets/images/isA.png" alt="isA" class="site-logo">
           </a>
         </div>
 
@@ -563,9 +576,9 @@
           <nav class="site-nav">
             
             
-              <a class="nav-link active" href="/xenodennis/">Home</a>
-              <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
-              <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+              <a class="nav-link active" href="/">Home</a>
+              <a class="nav-link " href="/about-me/">About Me</a>
+              <a class="nav-link " href="/my-services/">My Services</a>
             
           </nav>
         </div>
@@ -578,9 +591,9 @@
           
           <div class="lang-switcher">
             
-              <a class="lang-link active" href="/xenodennis/">EN</a>
+              <a class="lang-link active" href="/">EN</a>
               <span class="lang-separator">|</span>
-              <a class="lang-link" href="/xenodennis/zh/">中</a>
+              <a class="lang-link" href="/zh/">中</a>
             
           </div>
         </div>
@@ -604,8 +617,8 @@
         Transforming ideas into reality through innovative technology solutions and AI-driven development
       </p>
       <div class="hero-cta">
-        <a href="/xenodennis/about-me/" class="cta-button">Learn More</a>
-        <a href="/xenodennis/my-services/" class="cta-button outline">View Services</a>
+        <a href="/about-me/" class="cta-button">Learn More</a>
+        <a href="/my-services/" class="cta-button outline">View Services</a>
       </div>
     </div>
 
@@ -662,13 +675,13 @@
               
                 <div class="post-categories">
                   
-                    <a href="/xenodennis/category/digital-transformation/" class="category-tag">digital-transformation</a>
+                    <a href="/category/digital-transformation/" class="category-tag">digital-transformation</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/xenodennis/2024/03/20/welcome/">Welcome to My Blog</a>
+              <a class="post-link" href="/2024/03/20/welcome/">Welcome to My Blog</a>
             </h2>
             
               <h3 class="post-subtitle">A journey through technology, design, and life</h3>
@@ -680,7 +693,7 @@ A modern developer’s workspace
           </div>
           
             <div class="post-thumbnail">
-              <a href="/xenodennis/2024/03/20/welcome/" class="post-thumbnail-link">
+              <a href="/2024/03/20/welcome/" class="post-thumbnail-link">
                 <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Welcome to My Blog" class="thumbnail-image">
               </a>
             </div>
@@ -694,13 +707,13 @@ A modern developer’s workspace
               
                 <div class="post-categories">
                   
-                    <a href="/xenodennis/category/audio-gear/" class="category-tag">audio-gear</a>
+                    <a href="/category/audio-gear/" class="category-tag">audio-gear</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/xenodennis/2024/03/21/introduction-to-hifi-iems/">Introduction to HiFi IEMs: The Gateway to Personal Audio Excellence</a>
+              <a class="post-link" href="/2024/03/21/introduction-to-hifi-iems/">Introduction to HiFi IEMs: The Gateway to Personal Audio Excellence</a>
             </h2>
             
               <h3 class="post-subtitle">Understanding In-Ear Monitors: From Basic Concepts to Advanced Technology</h3>
@@ -709,7 +722,7 @@ A modern developer’s workspace
           </div>
           
             <div class="post-thumbnail">
-              <a href="/xenodennis/2024/03/21/introduction-to-hifi-iems/" class="post-thumbnail-link">
+              <a href="/2024/03/21/introduction-to-hifi-iems/" class="post-thumbnail-link">
                 <img src="https://images.unsplash.com/photo-1631867675167-90a456a90863" alt="Introduction to HiFi IEMs: The Gateway to Personal Audio Excellence" class="thumbnail-image">
               </a>
             </div>
@@ -723,15 +736,15 @@ A modern developer’s workspace
               
                 <div class="post-categories">
                   
-                    <a href="/xenodennis/category/machine-learning/" class="category-tag">machine-learning</a>
+                    <a href="/category/machine-learning/" class="category-tag">machine-learning</a>
                   
-                    <a href="/xenodennis/category/case-study/" class="category-tag">case-study</a>
+                    <a href="/category/case-study/" class="category-tag">case-study</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/xenodennis/2025/01/04/machine-failure-detection/">Machine Failure Detection Using Machine Learning</a>
+              <a class="post-link" href="/2025/01/04/machine-failure-detection/">Machine Failure Detection Using Machine Learning</a>
             </h2>
             
               <h3 class="post-subtitle">A Case Study from University of Colorado Boulder ML Course</h3>
@@ -742,10 +755,35 @@ A modern developer’s workspace
           </div>
           
             <div class="post-thumbnail">
-              <a href="/xenodennis/2025/01/04/machine-failure-detection/" class="post-thumbnail-link">
+              <a href="/2025/01/04/machine-failure-detection/" class="post-thumbnail-link">
                 <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80" alt="Machine Failure Detection Using Machine Learning" class="thumbnail-image">
               </a>
             </div>
+          
+        </article>
+      
+        <article class="post-preview">
+          <div class="post-content-preview">
+            <div class="post-meta">
+              <p class="post-date">March 25, 2025</p>
+              
+                <div class="post-categories">
+                  
+                    <a href="/category/ai/" class="category-tag">AI</a>
+                  
+                    <a href="/category/development/" class="category-tag">Development</a>
+                  
+                </div>
+              
+            </div>
+            <h2 class="post-title">
+              <a class="post-link" href="/2025/03/25/Github_Dev_Tools/">Exploring the Future of AI Development: A Journey Through GitHub&#39;s Latest Tools</a>
+            </h2>
+            
+            <p class="post-excerpt">The Future of AI Development: A Peek Behind the Curtain
+
+</p>
+          </div>
           
         </article>
       
@@ -761,7 +799,7 @@ A modern developer’s workspace
           
             
             <li>
-              <a href="/xenodennis/category/digital-transformation/" class="category-link ">
+              <a href="/category/digital-transformation/" class="category-link ">
                 digital-transformation
                 <span class="post-count">1</span>
               </a>
@@ -769,7 +807,7 @@ A modern developer’s workspace
           
             
             <li>
-              <a href="/xenodennis/category/audio-gear/" class="category-link ">
+              <a href="/category/audio-gear/" class="category-link ">
                 audio-gear
                 <span class="post-count">1</span>
               </a>
@@ -777,7 +815,7 @@ A modern developer’s workspace
           
             
             <li>
-              <a href="/xenodennis/category/machine-learning/" class="category-link ">
+              <a href="/category/machine-learning/" class="category-link ">
                 machine-learning
                 <span class="post-count">1</span>
               </a>
@@ -785,8 +823,24 @@ A modern developer’s workspace
           
             
             <li>
-              <a href="/xenodennis/category/case-study/" class="category-link ">
+              <a href="/category/case-study/" class="category-link ">
                 case-study
+                <span class="post-count">1</span>
+              </a>
+            </li>
+          
+            
+            <li>
+              <a href="/category/ai/" class="category-link ">
+                AI
+                <span class="post-count">1</span>
+              </a>
+            </li>
+          
+            
+            <li>
+              <a href="/category/development/" class="category-link ">
+                Development
                 <span class="post-count">1</span>
               </a>
             </li>
@@ -1010,7 +1064,7 @@ A modern developer’s workspace
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-content">
-          © 2025 XENODENNIS
+          © 2025 isA
         </div>
       </div>
     </footer>
@@ -1024,7 +1078,7 @@ A modern developer’s workspace
       SimpleJekyllSearch({
         searchInput: searchInput,
         resultsContainer: searchResults,
-        json: '/xenodennis/search.json',
+        json: '/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
         noResultsText: '',
         limit: 10,
@@ -1058,9 +1112,9 @@ A modern developer’s workspace
     <div class="mobile-nav">
       <nav>
         
-          <a class="nav-link active" href="/xenodennis/">Home</a>
-          <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
-          <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+          <a class="nav-link active" href="/">Home</a>
+          <a class="nav-link " href="/about-me/">About Me</a>
+          <a class="nav-link " href="/my-services/">My Services</a>
         
         <div class="search-container">
           <input type="text" id="mobile-search-input" placeholder="">

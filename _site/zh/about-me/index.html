@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>关于我 - XENODENNIS</title>
-    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <title>关于我 - isA</title>
+    <link rel="icon" type="image/png" href="/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/assets/images/isA.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -16,8 +18,15 @@
         right: 0;
         z-index: 1000;
         background: white;
-        height: 60px;
+        height: 80px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      .site-logo {
+        height: 60px;
+        width: auto;
+        display: block;
+        padding: 10px 0;
       }
 
       .header-inner {
@@ -40,7 +49,7 @@
       .home-hero,
       .about-hero,
       .services-hero {
-        margin-top: 60px;
+        margin-top: 80px;
         min-height: 400px;
         background-size: cover;
         background-position: center;
@@ -145,7 +154,12 @@
       /* Mobile responsive styles */
       @media (max-width: 768px) {
         .site-header {
-          height: 50px;
+          height: 70px;  /* Adjusted for mobile */
+        }
+
+        .site-logo {
+          height: 50px;  /* Adjusted for mobile */
+          padding: 8px 0;
         }
 
         .header-inner {
@@ -159,7 +173,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -376,7 +390,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
         }
@@ -402,7 +416,7 @@
           height: 24px;
           position: fixed;
           left: 15px;
-          top: 13px;
+          top: 23px;  /* Adjusted to center with new header height */
           z-index: 1002;
           cursor: pointer;
           background: none;
@@ -553,9 +567,8 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="/xenodennis/zh/" class="site-title">
-            <img src="/xenodennis/assets/images/logo.svg" alt="XENODENNIS" class="site-logo">
-            <img src="/xenodennis/assets/images/title.svg" alt="XENODENNIS" class="site-title-svg">
+          <a href="/zh/" class="site-title">
+            <img src="/assets/images/isA.png" alt="isA" class="site-logo">
           </a>
         </div>
 
@@ -563,9 +576,9 @@
           <nav class="site-nav">
             
             
-              <a class="nav-link " href="/xenodennis/zh/">首页</a>
-              <a class="nav-link active" href="/xenodennis/zh/about-me/">关于我</a>
-              <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+              <a class="nav-link " href="/zh/">首页</a>
+              <a class="nav-link active" href="/zh/about-me/">关于我</a>
+              <a class="nav-link " href="/zh/my-services/">我的服务</a>
             
           </nav>
         </div>
@@ -578,9 +591,9 @@
           
           <div class="lang-switcher">
             
-              <a class="lang-link" href="/xenodennis/">EN</a>
+              <a class="lang-link" href="/">EN</a>
               <span class="lang-separator">|</span>
-              <a class="lang-link active" href="/xenodennis/zh/">中</a>
+              <a class="lang-link active" href="/zh/">中</a>
             
           </div>
         </div>
@@ -942,7 +955,7 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-content">
-          © 2025 XENODENNIS
+          © 2025 isA
         </div>
       </div>
     </footer>
@@ -956,7 +969,7 @@
       SimpleJekyllSearch({
         searchInput: searchInput,
         resultsContainer: searchResults,
-        json: '/xenodennis/search.json',
+        json: '/search.json',
         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
         noResultsText: '未找到结果',
         limit: 10,
@@ -990,9 +1003,9 @@
     <div class="mobile-nav">
       <nav>
         
-          <a class="nav-link " href="/xenodennis/zh/">首页</a>
-          <a class="nav-link active" href="/xenodennis/zh/about-me/">关于我</a>
-          <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+          <a class="nav-link " href="/zh/">首页</a>
+          <a class="nav-link active" href="/zh/about-me/">关于我</a>
+          <a class="nav-link " href="/zh/my-services/">我的服务</a>
         
         <div class="search-container">
           <input type="text" id="mobile-search-input" placeholder="搜索文章和页面...">
