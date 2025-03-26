@@ -2,7 +2,7 @@
 layout: post
 title: "Exploring the Future of AI Development: A Journey Through GitHub's Latest Tools"
 date: 2025-03-25
-categories: AI Development
+categories: AI
 tags: [AI Tools, GitHub, Development, Innovation]
 ---
 
