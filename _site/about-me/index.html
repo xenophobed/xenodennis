@@ -4,1241 +4,353 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Me - isA</title>
-    <link rel="icon" type="image/png" href="/assets/images/isA.png">
-    <link rel="apple-touch-icon" href="/assets/images/isA.png">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/png" href="/xenodennis/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/xenodennis/assets/images/isA.png">
+    <link rel="stylesheet" href="/xenodennis/assets/css/theme.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/common.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-      /* Header styles */
-      .site-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: white;
-        height: 80px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      }
-
-      .site-logo {
-        height: 60px;
-        width: auto;
-        display: block;
-        padding: 10px 0;
-      }
-
-      .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .header-left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Hero sections */
-      .home-hero,
-      .about-hero,
-      .services-hero {
-        margin-top: 80px;
-        min-height: 400px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      .hero-text {
-        text-align: center;
-        max-width: 800px;
-        padding: 0 20px;
-      }
-
-      .zh-hero {
-        margin-top: 60px;
-      }
-
-      main {
-        padding-top: 0; /* Remove main padding since hero sections handle it */
-      }
-
-      .post {
-        margin-top: 0; /* Remove top margin from post */
-        padding-top: 0; /* Remove top padding from post */
-      }
-
-      .post-cover {
-        position: relative;
-        margin: 0; /* Remove all margins */
-        width: 100%;
-        height: 400px;
-      }
-
-      .post-cover img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* Post list spacing */
-      .post-list {
-        margin: 0;
-        padding: 0;
-      }
-
-      .post-list > li {
-        margin-bottom: 1.5rem; /* Reduce space between posts */
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(230, 230, 230, 1);
-      }
-
-      .post-list > li:last-child {
-        border-bottom: none;
-      }
-
-      /* Post meta with read time */
-      .post-meta {
-        color: rgba(117, 117, 117, 1);
-        font-size: 0.875rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 0.5rem 0;
-      }
-
-      /* Category colors */
-      .post-categories {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .category-tag {
-        padding: 0.2rem 0.8rem;
-        border-radius: 100px;
-        font-size: 0.875rem;
-        text-decoration: none;
-        background: #f3f4f6;
-        color: #3b82f6;
-        transition: all 0.2s ease;
-      }
-
-      .category-tag:hover {
-        background: #3b82f6;
-        color: white;
-      }
-
-      /* Post excerpt */
-      .post-excerpt {
-        margin: 1rem 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: rgba(41, 41, 41, 0.9);
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; /* Show 4 lines */
-        -webkit-box-orient: vertical;
-      }
-
-      /* Mobile responsive styles */
-      @media (max-width: 768px) {
-        .site-header {
-          height: 70px;  /* Adjusted for mobile */
-        }
-
-        .site-logo {
-          height: 50px;  /* Adjusted for mobile */
-          padding: 8px 0;
-        }
-
-        .header-inner {
-          padding: 0 15px;
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-
-        .mobile-menu-button span {
-          display: block;
-          position: absolute;
-          height: 2px;
-          width: 100%;
-          background: #333;
-          border-radius: 2px;
-          opacity: 1;
-          left: 0;
-          transform: rotate(0deg);
-          transition: .25s ease-in-out;
-        }
-
-        .mobile-menu-button span:nth-child(1) { top: 4px; }
-        .mobile-menu-button span:nth-child(2) { top: 11px; }
-        .mobile-menu-button span:nth-child(3) { top: 18px; }
-
-        .mobile-menu-button.active span:nth-child(1) {
-          top: 11px;
-          transform: rotate(45deg);
-        }
-
-        .mobile-menu-button.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-button.active span:nth-child(3) {
-          top: 11px;
-          transform: rotate(-45deg);
-        }
-
-        /* Mobile navigation */
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 50px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: white;
-          padding: 20px;
-          z-index: 999;
-          overflow-y: auto;
-        }
-
-        .mobile-nav.active {
-          display: block;
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 16px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-        }
-
-        .mobile-nav .search-container {
-          margin: 20px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          font-size: 14px;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          margin-top: 5px;
-          padding: 0;
-          list-style: none;
-          max-height: 200px;
-          overflow-y: auto;
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 10px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .site-logo {
-          height: 24px;
-        }
-
-        .site-title-svg {
-          display: none;
-        }
-
-        /* Hero sections for mobile */
-        .home-hero,
-        .about-hero,
-        .services-hero,
-        .zh-hero {
-          margin-top: 50px;
-          min-height: 400px;
-          padding: 60px 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .hero-text {
-          padding: 0 15px;
-          margin-top: 40px;
-        }
-
-        .hero-text h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .hero-text p {
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-
-        /* Hide desktop elements */
-        .header-center,
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .lang-link {
-          font-size: 14px;
-          padding: 4px 8px;
-        }
-
-        /* Hide desktop navigation */
-        .site-nav {
-          display: none;
-        }
-
-        /* Hide desktop search */
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-      }
-
-      /* Base mobile menu styles */
-      .mobile-menu-button {
-        display: none;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
-
-      @media (max-width: 768px) {
-        body.menu-active {
-          overflow: hidden;
-        }
-
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-          background: none;
-          border: none;
-          padding: 0;
-        }
-
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(255, 255, 255, 0.98);
-          padding: 70px 20px 20px;
-          z-index: 998;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .mobile-nav.active {
-          display: block;
-          animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 18px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-          transition: color 0.2s ease;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-          font-weight: 500;
-        }
-
-        .mobile-nav .search-container {
-          margin: 30px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 12px;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          font-size: 16px;
-          background: #f8f9fa;
-        }
-
-        .mobile-nav .search-container input:focus {
-          outline: none;
-          border-color: #3b82f6;
-          background: white;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #eee;
-          border-radius: 8px;
-          margin-top: 8px;
-          padding: 0;
-          list-style: none;
-          max-height: 300px;
-          overflow-y: auto;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 12px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-          font-size: 14px;
-        }
-      }
-
-      /* Base styles */
-      .header-center {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .site-nav {
-        display: flex;
-        gap: 2rem;
-      }
-
-      /* Mobile styles */
-      @media (max-width: 768px) {
-        /* Hide desktop navigation completely */
-        .header-center {
-          display: none !important;
-        }
-
-        .site-nav {
-          display: none !important;
-        }
-
-        /* Rest of mobile styles... */
-      }
-    </style>
   </head>
   <body>
-    <!-- Move mobile menu button outside header -->
-    <div class="mobile-menu-button">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/xenodennis/" class="site-title">
+        <span class="text-logo">isA</span>
+      </a>
     </div>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="header-left">
-          <a href="/" class="site-title">
-            <img src="/assets/images/isA.png" alt="isA" class="site-logo">
-          </a>
-        </div>
+    <div class="header-center">
+      <nav class="site-nav">
+        
+        
+          <a class="nav-link " href="/xenodennis/">Home</a>
+          <a class="nav-link active" href="/xenodennis/about-me/">About Me</a>
+          <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+        
+      </nav>
+    </div>
 
-        <div class="header-center">
-          <nav class="site-nav">
-            
-            
-              <a class="nav-link " href="/">Home</a>
-              <a class="nav-link active" href="/about-me/">About Me</a>
-              <a class="nav-link " href="/my-services/">My Services</a>
-            
-          </nav>
-        </div>
-
-        <div class="header-right">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="search-results"></ul>
-          </div>
-          
-          <div class="lang-switcher">
-            
-              <a class="lang-link active" href="/">EN</a>
-              <span class="lang-separator">|</span>
-              <a class="lang-link" href="/zh/">中</a>
-            
-          </div>
-        </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        
+          <a class="lang-link active" href="/xenodennis/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link" href="/xenodennis/zh/">中</a>
+        
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-button">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    
+      <a class="nav-link " href="/xenodennis/">Home</a>
+      <a class="nav-link active" href="/xenodennis/about-me/">About Me</a>
+      <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+    
+  </nav>
+</div> 
 
     <main>
-      <style>
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1f2937;
-}
+      <div class="about-container">
+  <div class="about-header">
+    <h1 class="page-title">About Me</h1>
+    <p class="lead">Digital Consultant & AI Specialist</p>
+  </div>
 
-.section-title i {
-  margin-right: 10px;
-  color: #3b82f6;
-}
+  <div class="about-content">
+    <section class="about-section">
+      <h2>Professional Background</h2>
+      <p>I specialize in helping organizations navigate digital transformation through innovative technology solutions and AI-driven development. With expertise spanning AI/ML, cloud infrastructure, and software engineering, I deliver strategic insights and technical leadership that drives business growth.</p>
+      
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Artificial Intelligence</h3>
+          <p>Machine learning model development, NLP systems, computer vision solutions, and recommendation engines.</p>
+        </div>
+        
+        <div class="skill-card">
+          <h3>Cloud Architecture</h3>
+          <p>Cloud-native application design, microservices architecture, serverless computing, and multi-cloud strategies.</p>
+        </div>
+        
+        <div class="skill-card">
+          <h3>Data Engineering</h3>
+          <p>Big data processing, ETL pipeline development, data warehousing, and real-time analytics systems.</p>
+        </div>
+        
+        <div class="skill-card">
+          <h3>Digital Strategy</h3>
+          <p>Digital transformation roadmaps, technology stack evaluation, and innovation frameworks.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="about-section">
+      <h2>Education</h2>
+      
+      <div class="education-item">
+        <h3>Master of Science in Computer Science</h3>
+        <p class="education-meta">Stanford University, 2015-2017</p>
+        <p>Specialized in Artificial Intelligence and Machine Learning with focus on natural language processing and computer vision applications.</p>
+      </div>
+      
+      <div class="education-item">
+        <h3>Bachelor of Engineering in Software Engineering</h3>
+        <p class="education-meta">University of Waterloo, 2011-2015</p>
+        <p>Graduated with honors, focusing on distributed systems and database design. Completed multiple industry internships as part of the co-op program.</p>
+      </div>
+    </section>
+    
+    <section class="about-section">
+      <h2>Certifications</h2>
+      
+      <ul class="certification-list">
+        <li>
+          <h3>Google Cloud Professional Data Engineer</h3>
+          <span class="cert-institution">Google Cloud, 2023</span>
+        </li>
+        <li>
+          <h3>AWS Certified Solutions Architect - Professional</h3>
+          <span class="cert-institution">Amazon Web Services, 2022</span>
+        </li>
+        <li>
+          <h3>Microsoft Certified: Azure AI Engineer Associate</h3>
+          <span class="cert-institution">Microsoft, 2021</span>
+        </li>
+        <li>
+          <h3>TensorFlow Developer Certificate</h3>
+          <span class="cert-institution">Google, 2020</span>
+        </li>
+      </ul>
+    </section>
+    
+    <section class="about-section">
+      <h2>Contact</h2>
+      
+      <div class="contact-grid">
+        <a href="mailto:your-email@example.com" class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">your-email@example.com</span>
+        </a>
+        
+        <a href="https://linkedin.com/in/yourprofile" class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/yourprofile</span>
+        </a>
+        
+        <a href="https://github.com/yourusername" class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/yourusername</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
 
-.skill-icon i {
-  font-size: 2rem;
-  color: #3b82f6;
-  transition: transform 0.3s ease;
-}
-
-.skill-card:hover .skill-icon i {
-  transform: scale(1.1);
-}
-
-.contact-icon i {
-  font-size: 1.5rem;
-  color: #3b82f6;
-  transition: transform 0.3s ease;
-}
-
-.contact-item:hover .contact-icon i {
-  transform: scale(1.1);
-}
-
-.timeline-achievements {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.timeline-achievements li {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.timeline-achievements li:before {
-  content: "•";
-  color: #3b82f6;
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-}
-
-.timeline-achievements strong {
-  color: #3b82f6;
-  font-weight: 600;
-}
-
-.timeline-achievements br {
-  content: "";
-  margin: 0.3rem 0;
-  display: block;
-}
-
-.education-section {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-.education-item {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.education-meta {
-  color: #3b82f6;
-  font-weight: 500;
-  margin: 0.5rem 0 1rem 0;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease;
-}
-
-.contact-item:hover {
-  transform: translateY(-5px);
-}
-
-.education-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+<style>
+.about-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-card {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.skill-card p {
+  color: var(--secondary);
+  margin: 0;
+  line-height: 1.5;
 }
 
 .education-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  margin-bottom: 2rem;
 }
 
-.education-item:hover {
-  transform: translateY(-5px);
-}
-
-.main-education {
-  text-align: center;
-  border-bottom: 3px solid #3b82f6;
-}
-
-.education-icon {
-  font-size: 2.5rem;
-  color: #3b82f6;
-  margin-bottom: 1rem;
+.education-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .education-meta {
-  color: #4b5563;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
 .certification-list {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0 0 0;
+  margin: 0;
 }
 
 .certification-list li {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  position: relative;
 }
 
-.certification-list li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+.certification-list li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
 }
 
-.cert-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.cert-header i {
-  color: #3b82f6;
+.certification-list h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.25rem 0;
 }
 
 .cert-institution {
-  display: block;
-  color: #6b7280;
+  color: var(--text-muted);
   font-size: 0.9rem;
-  margin-left: 1.8rem;
-}
-
-.contact-section {
-  background: white;
-  padding: 3rem;
-  border-radius: 12px;
-  margin-top: 4rem;
 }
 
 .contact-grid {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .contact-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--background);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-icon {
-  background: #f3f4f6;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.75rem;
-  transition: all 0.3s ease;
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--accent);
 }
 
-.contact-item:hover .contact-icon {
-  background: #3b82f6;
-  transform: translateY(-5px);
-}
-
-.contact-item:hover .contact-icon i {
-  color: white;
-}
-
-.contact-item span {
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .contact-grid {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .education-grid {
-    gap: 1.5rem;
-  }
-  
-  .contact-section {
-    padding: 2rem;
-  }
-}
-
-.experience-timeline {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-.skills-matrix {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-/* Case Studies Section Styles */
-.case-studies {
-  margin: 4rem 0;
-  padding: 2rem;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-.case-study-grid {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.case-study-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.case-meta {
-  color: #3b82f6;
-  font-weight: 500;
-  margin: 0.5rem 0 1.5rem 0;
-}
-
-.feature-group {
-  margin-bottom: 2rem;
-}
-
-.feature-group:last-child {
-  margin-bottom: 0;
-}
-
-.feature-group h4 {
-  color: #1f2937;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.feature-group h4 i {
-  color: #3b82f6;
-}
-
-.feature-group ul {
-  list-style: none;
-  padding-left: 1.8rem;
-  margin: 0;
-}
-
-.feature-group ul li {
-  position: relative;
+.contact-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
   margin-bottom: 0.5rem;
-  color: #4b5563;
 }
 
-.feature-group ul li::before {
-  content: "•";
-  color: #3b82f6;
-  position: absolute;
-  left: -1.2rem;
+.contact-value {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-@media (max-width: 768px) {
-  .case-study-item {
-    padding: 1.5rem;
+.contact-item:hover .contact-value {
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
   
-  .feature-group {
-    margin-bottom: 1.5rem;
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
-</style>
-
-<div class="about-container">
-  <!-- Hero Section -->
-  <section class="about-hero">
-    <div class="hero-content">
-      <h1 class="glitch-text" data-text="Your Digital Partner">Your Digital Partner</h1>
-      <p class="hero-subtitle">Digital Consultant & AI Specialist</p>
-      <div class="tech-line"></div>
-    </div>
-  </section>
-
-  <!-- Skills Matrix -->
-  <section class="skills-matrix">
-    <h2 class="section-title"><i class="fas fa-brain"></i> Technical Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill-card" data-category="AI/ML">
-        <div class="skill-icon">
-          <i class="fas fa-robot"></i>
-        </div>
-        <h3>AI & Machine Learning</h3>
-        <ul class="skill-list">
-          <li>Deep Learning & Neural Networks</li>
-          <li>Natural Language Processing</li>
-          <li>Computer Vision</li>
-          <li>LLM Integration & Fine-tuning</li>
-        </ul>
-      </div>
-      
-      <div class="skill-card" data-category="Development">
-        <div class="skill-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3>Data Science & Analytics</h3>
-        <ul class="skill-list">
-          <li>Data Visualization</li>
-          <li>Data Engineering</li>
-          <li>Data Analysis</li>
-          <li>Data Modeling</li>
-        </ul>
-      </div>
-      
-      <div class="skill-card" data-category="Architecture">
-        <div class="skill-icon">
-          <i class="fas fa-digital-tachograph"></i>
-        </div>
-        <h3>Digital Transformation</h3>
-        <ul class="skill-list">
-          <li>Digital Strategy</li>
-          <li>Cloud Solutions</li>
-          <li>AI Integration</li>
-          <li>Data Governance</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Timeline -->
-  <section class="experience-timeline">
-    <h2 class="section-title"><i class="fas fa-history"></i> Professional Journey</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Digital Transformation & AI Product Consultant</h3>
-          <p class="timeline-date">Oct 2022 - Present</p>
-          <p>Leading innovative AI solutions development with multiple product generations:</p>
-          <ul class="timeline-achievements">
-            <li><strong>Gen 4 (Dec 2024)</strong>: Multi-Agent Architecture System
-              <br>Advanced distributed AI system with multiple specialized agents</li>
-            <li><strong>Gen 3 (Jul 2024)</strong>: Distributed Learning Framework
-              <br>Lightweight model architecture with distributed inference capabilities</li>
-            <li><strong>Gen 2 (Dec 2023)</strong>: Advanced Agent Platform
-              <br>Multimodal integration with Canvas support and enhanced tooling</li>
-            <li><strong>Gen 1 (Jun 2023)</strong>: AIGC Platform
-              <br>Integration of ChatGPT-3.5 and Midjourney for marketing automation</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Chief Data Officer</h3>
-          <p class="timeline-date">2021 - 2022</p>
-          <p>Led data strategy and digital transformation at Ziel (China Shenzhen Listed), a major e-commerce enterprise.</p>
-          <ul class="timeline-achievements">
-            <li><strong>Digital Transformation</strong>
-              <br>Spearheaded end-to-end business process rebuild and modernization</li>
-            <li><strong>Data Experience Platform</strong>
-              <br>Architected ML-powered platform for automated e-commerce operations</li>
-            <li><strong>Supply Chain Optimization</strong>
-              <br>Implemented predictive analytics for inventory and logistics optimization</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Chief Information Officer</h3>
-          <p class="timeline-date">2014 - 2021</p>
-          <p>Led digital strategy at Royole (Unicorn), pioneer of the world's first flexible display and foldable smartphone.</p>
-          <ul class="timeline-achievements">
-            <li><strong>Manufacturing Digitalization</strong>
-              <br>Designed and implemented intelligent automated manufacturing systems for flexible display production</li>
-            <li><strong>End-to-End Digital Transformation</strong>
-              <br>Orchestrated digital integration across manufacturing, supply chain, and marketplace operations</li>
-            <li><strong>Data Infrastructure</strong>
-              <br>Established enterprise data warehouse and cross-functional BI systems</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies Section -->
-  <section class="case-studies">
-    <h2 class="section-title"><i class="fas fa-lightbulb"></i> Featured Case Study</h2>
-    <div class="case-study-grid">
-      <div class="case-study-item">
-        <h3>isAssistant Platform</h3>
-        <p class="case-meta">AI-Powered Enterprise Assistant Platform</p>
-        
-        <div class="case-content">
-          <div class="feature-group">
-            <h4><i class="fas fa-check-circle"></i> Reliable Response System</h4>
-            <ul>
-              <li>Comprehensive capability assessment for each request</li>
-              <li>Context-aware response generation</li>
-              <li>Short-term and long-term memory management</li>
-              <li>Automatic human handoff for low-confidence scenarios</li>
-              <li>Continuous learning from human responses</li>
-            </ul>
-          </div>
-
-          <div class="feature-group">
-            <h4><i class="fas fa-network-wired"></i> Flexible Node Architecture</h4>
-            <ul>
-              <li>Multiple node types (Agent, Tool, Chain nodes)</li>
-              <li>Dynamic role-based nodes (Planning, Routing, Context)</li>
-              <li>Hot-pluggable capability-based node discovery</li>
-              <li>Advanced workflow management</li>
-              <li>Multi-graph architecture with sub-graph orchestration</li>
-            </ul>
-          </div>
-
-          <div class="feature-group">
-            <h4><i class="fas fa-layer-group"></i> Comprehensive Service Integration</h4>
-            <ul>
-              <li>Multi-modal AI services (OpenAI, Claude, Llama, Qwen)</li>
-              <li>Vector stores and graph services (Neo4j, Qdrant, Milvus)</li>
-              <li>Browser automation and video processing</li>
-              <li>Voice UI and adaptive agent framework</li>
-              <li>Multi-channel communication (WeChat, WhatsApp, Email)</li>
-            </ul>
-          </div>
-
-          <div class="feature-group">
-            <h4><i class="fas fa-brain"></i> Advanced AI Capabilities</h4>
-            <ul>
-              <li>Automated data collection and labeling</li>
-              <li>User segmentation and topic analysis</li>
-              <li>Predictive user needs analysis</li>
-              <li>Dynamic response optimization</li>
-              <li>Automated workflow orchestration</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="education-section">
-    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-    <div class="education-grid">
-      <!-- Main Education -->
-      <div class="education-item main-education">
-        <div class="education-icon">
-          <i class="fas fa-university"></i>
-        </div>
-        <h3>University of Colorado Boulder</h3>
-        <p class="education-meta">Master's Degree in Data Science</p>
-      </div>
-
-      <!-- Certifications -->
-      <div class="education-item certifications">
-        <h3>Professional Certifications</h3>
-        <ul class="certification-list">
-          <li>
-            <div class="cert-header">
-              <i class="fas fa-certificate"></i>
-              <strong>Reinforcement Learning Specialization</strong>
-            </div>
-            <span class="cert-institution">University of Alberta</span>
-          </li>
-          <li>
-            <div class="cert-header">
-              <i class="fas fa-certificate"></i>
-              <strong>Data Mining Specialization</strong>
-            </div>
-            <span class="cert-institution">University of Illinois Urbana-Champaign</span>
-          </li>
-          <li>
-            <div class="cert-header">
-              <i class="fas fa-certificate"></i>
-              <strong>Applied Data Science with Python</strong>
-            </div>
-            <span class="cert-institution">University of Michigan</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <h2 class="section-title"><i class="fas fa-envelope"></i> Connect</h2>
-    <div class="contact-grid">
-      <a href="https://github.com/xenophobed" class="contact-item" target="_blank">
-        <div class="contact-icon">
-          <i class="fab fa-github"></i>
-        </div>
-        <span>GitHub</span>
-      </a>
-      
-      <a href="https://www.linkedin.com/in/dennis-deng-4b532865/" class="contact-item" target="_blank">
-        <div class="contact-icon">
-          <i class="fab fa-linkedin"></i>
-        </div>
-        <span>LinkedIn</span>
-      </a>
-      
-      <a href="mailto:tmacdennisdddd@gmail.com" class="contact-item">
-        <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <span>Email</span>
-      </a>
-    </div>
-  </section>
-</div> 
+</style> 
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-content">
-          © 2025 isA
-        </div>
+    <!-- Site Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        © 2025 isA
       </div>
-    </footer>
-
-    <!-- Simple Jekyll Search -->
-    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-    <script>
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      
-      SimpleJekyllSearch({
-        searchInput: searchInput,
-        resultsContainer: searchResults,
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: '',
-        limit: 10,
-        fuzzy: false,
-        success: function() {
-          searchResults.classList.add('visible');
-        }
-      });
-
-      document.addEventListener('click', function(event) {
-        const isClickInside = searchInput.contains(event.target) || searchResults.contains(event.target);
-        if (!isClickInside) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('input', function() {
-        if (!this.value) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('click', function() {
-        if (this.value && searchResults.children.length > 0) {
-          searchResults.classList.add('visible');
-        }
-      });
-    </script>
-
-    <!-- Add mobile navigation -->
-    <div class="mobile-nav">
-      <nav>
-        
-          <a class="nav-link " href="/">Home</a>
-          <a class="nav-link active" href="/about-me/">About Me</a>
-          <a class="nav-link " href="/my-services/">My Services</a>
-        
-        <div class="search-container">
-          <input type="text" id="mobile-search-input" placeholder="">
-          <ul id="mobile-search-results"></ul>
-        </div>
-      </nav>
     </div>
+  </div>
+</footer> 
 
-    <!-- Add mobile menu JavaScript -->
+    <!-- Mobile Navigation Script -->
     <script>
       document.querySelector('.mobile-menu-button').addEventListener('click', function() {
         this.classList.toggle('active');

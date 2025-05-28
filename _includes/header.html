@@ -1,0 +1,61 @@
+<!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="{{ site.baseurl }}/{% if page.lang == 'zh' %}zh/{% endif %}" class="site-title">
+        <span class="text-logo">isA</span>
+      </a>
+    </div>
+
+    <div class="header-center">
+      <nav class="site-nav">
+        {% assign current_url_parts = page.url | split: '/' %}
+        {% if current_url_parts[1] == 'zh' %}
+          <a class="nav-link {% if page.url == '/zh/' %}active{% endif %}" href="{{ site.baseurl }}/zh/">首页</a>
+          <a class="nav-link {% if page.url == '/zh/about-me/' %}active{% endif %}" href="{{ site.baseurl }}/zh/about-me/">关于我</a>
+          <a class="nav-link {% if page.url == '/zh/my-services/' %}active{% endif %}" href="{{ site.baseurl }}/zh/my-services/">我的服务</a>
+        {% else %}
+          <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+          <a class="nav-link {% if page.url == '/about-me/' %}active{% endif %}" href="{{ site.baseurl }}/about-me/">About Me</a>
+          <a class="nav-link {% if page.url == '/my-services/' %}active{% endif %}" href="{{ site.baseurl }}/my-services/">My Services</a>
+        {% endif %}
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="lang-switcher">
+        {% if current_url_parts[1] == 'zh' %}
+          <a class="lang-link" href="{{ site.baseurl }}/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link active" href="{{ site.baseurl }}/zh/">中</a>
+        {% else %}
+          <a class="lang-link active" href="{{ site.baseurl }}/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link" href="{{ site.baseurl }}/zh/">中</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-button">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    {% if current_url_parts[1] == 'zh' %}
+      <a class="nav-link {% if page.url == '/zh/' %}active{% endif %}" href="{{ site.baseurl }}/zh/">首页</a>
+      <a class="nav-link {% if page.url == '/zh/about-me/' %}active{% endif %}" href="{{ site.baseurl }}/zh/about-me/">关于我</a>
+      <a class="nav-link {% if page.url == '/zh/my-services/' %}active{% endif %}" href="{{ site.baseurl }}/zh/my-services/">我的服务</a>
+    {% else %}
+      <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+      <a class="nav-link {% if page.url == '/about-me/' %}active{% endif %}" href="{{ site.baseurl }}/about-me/">About Me</a>
+      <a class="nav-link {% if page.url == '/my-services/' %}active{% endif %}" href="{{ site.baseurl }}/my-services/">My Services</a>
+    {% endif %}
+  </nav>
+</div> 

@@ -12,19 +12,20 @@ lang: zh
   font-weight: 700;
   margin-bottom: 2rem;
   text-align: center;
-  color: #1f2937;
+  color: var(--primary);
+  font-family: var(--font-heading);
 }
 
 .section-title i {
   margin-right: 10px;
-  color: #3b82f6;
+  color: var(--accent);
 }
 
 /* Education section styles */
 .education-section {
   margin: 4rem 0;
   padding: 2rem;
-  background: #f9fafb;
+  background: var(--secondary-light);
   border-radius: 12px;
 }
 
@@ -37,7 +38,7 @@ lang: zh
 }
 
 .education-item {
-  background: white;
+  background: var(--background);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -50,17 +51,17 @@ lang: zh
 
 .main-education {
   text-align: center;
-  border-bottom: 3px solid #3b82f6;
+  border-bottom: 3px solid var(--accent);
 }
 
 .education-icon {
   font-size: 2.5rem;
-  color: #3b82f6;
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
 .education-meta {
-  color: #4b5563;
+  color: var(--text-muted);
   font-size: 1.1rem;
   margin: 0.5rem 0;
 }
@@ -74,7 +75,7 @@ lang: zh
 .certification-list li {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .certification-list li:last-child {
@@ -91,12 +92,12 @@ lang: zh
 }
 
 .cert-header i {
-  color: #3b82f6;
+  color: var(--accent);
 }
 
 .cert-institution {
   display: block;
-  color: #6b7280;
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin-left: 1.8rem;
 }
@@ -105,7 +106,7 @@ lang: zh
 .contact-section {
   margin: 4rem 0;
   padding: 2rem;
-  background: #f9fafb;
+  background: var(--secondary-light);
   border-radius: 12px;
 }
 
@@ -126,7 +127,7 @@ lang: zh
 }
 
 .contact-icon {
-  background: #f3f4f6;
+  background: var(--background);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -139,11 +140,11 @@ lang: zh
 
 .contact-icon i {
   font-size: 1.5rem;
-  color: #4b5563;
+  color: var(--secondary);
 }
 
 .contact-item:hover .contact-icon {
-  background: #3b82f6;
+  background: var(--accent);
 }
 
 .contact-item:hover .contact-icon i {
@@ -167,6 +168,202 @@ lang: zh
   .contact-section {
     padding: 2rem;
   }
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.glitch-text {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+  font-family: var(--font-heading);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  font-family: var(--font-heading);
+}
+
+.tech-line {
+  height: 4px;
+  width: 120px;
+  background: var(--accent);
+  margin: 2rem auto 0;
+}
+
+/* Skills Matrix */
+.skills-matrix {
+  margin: 4rem 0;
+  padding: 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-card {
+  background: var(--background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card::before {
+  content: attr(data-category);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--secondary-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+.skill-icon {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--secondary);
+}
+
+.skill-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0.25rem;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Experience Timeline */
+.experience-timeline {
+  margin: 4rem 0;
+  padding: 2rem;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 3px;
+  background: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 4px solid var(--background);
+  z-index: 1;
+}
+
+.timeline-content {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+
+.timeline-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-achievements {
+  padding-left: 1.5rem;
+}
+
+.timeline-achievements li {
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.timeline-achievements strong {
+  color: var(--primary);
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 </style>
 

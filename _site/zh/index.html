@@ -4,601 +4,64 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>isA</title>
-    <link rel="icon" type="image/png" href="/assets/images/isA.png">
-    <link rel="apple-touch-icon" href="/assets/images/isA.png">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/png" href="/xenodennis/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/xenodennis/assets/images/isA.png">
+    <link rel="stylesheet" href="/xenodennis/assets/css/theme.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/common.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-      /* Header styles */
-      .site-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: white;
-        height: 80px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      }
-
-      .site-logo {
-        height: 60px;
-        width: auto;
-        display: block;
-        padding: 10px 0;
-      }
-
-      .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .header-left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Hero sections */
-      .home-hero,
-      .about-hero,
-      .services-hero {
-        margin-top: 80px;
-        min-height: 400px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      .hero-text {
-        text-align: center;
-        max-width: 800px;
-        padding: 0 20px;
-      }
-
-      .zh-hero {
-        margin-top: 60px;
-      }
-
-      main {
-        padding-top: 0; /* Remove main padding since hero sections handle it */
-      }
-
-      .post {
-        margin-top: 0; /* Remove top margin from post */
-        padding-top: 0; /* Remove top padding from post */
-      }
-
-      .post-cover {
-        position: relative;
-        margin: 0; /* Remove all margins */
-        width: 100%;
-        height: 400px;
-      }
-
-      .post-cover img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* Post list spacing */
-      .post-list {
-        margin: 0;
-        padding: 0;
-      }
-
-      .post-list > li {
-        margin-bottom: 1.5rem; /* Reduce space between posts */
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(230, 230, 230, 1);
-      }
-
-      .post-list > li:last-child {
-        border-bottom: none;
-      }
-
-      /* Post meta with read time */
-      .post-meta {
-        color: rgba(117, 117, 117, 1);
-        font-size: 0.875rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 0.5rem 0;
-      }
-
-      /* Category colors */
-      .post-categories {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .category-tag {
-        padding: 0.2rem 0.8rem;
-        border-radius: 100px;
-        font-size: 0.875rem;
-        text-decoration: none;
-        background: #f3f4f6;
-        color: #3b82f6;
-        transition: all 0.2s ease;
-      }
-
-      .category-tag:hover {
-        background: #3b82f6;
-        color: white;
-      }
-
-      /* Post excerpt */
-      .post-excerpt {
-        margin: 1rem 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: rgba(41, 41, 41, 0.9);
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; /* Show 4 lines */
-        -webkit-box-orient: vertical;
-      }
-
-      /* Mobile responsive styles */
-      @media (max-width: 768px) {
-        .site-header {
-          height: 70px;  /* Adjusted for mobile */
-        }
-
-        .site-logo {
-          height: 50px;  /* Adjusted for mobile */
-          padding: 8px 0;
-        }
-
-        .header-inner {
-          padding: 0 15px;
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-
-        .mobile-menu-button span {
-          display: block;
-          position: absolute;
-          height: 2px;
-          width: 100%;
-          background: #333;
-          border-radius: 2px;
-          opacity: 1;
-          left: 0;
-          transform: rotate(0deg);
-          transition: .25s ease-in-out;
-        }
-
-        .mobile-menu-button span:nth-child(1) { top: 4px; }
-        .mobile-menu-button span:nth-child(2) { top: 11px; }
-        .mobile-menu-button span:nth-child(3) { top: 18px; }
-
-        .mobile-menu-button.active span:nth-child(1) {
-          top: 11px;
-          transform: rotate(45deg);
-        }
-
-        .mobile-menu-button.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-button.active span:nth-child(3) {
-          top: 11px;
-          transform: rotate(-45deg);
-        }
-
-        /* Mobile navigation */
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 50px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: white;
-          padding: 20px;
-          z-index: 999;
-          overflow-y: auto;
-        }
-
-        .mobile-nav.active {
-          display: block;
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 16px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-        }
-
-        .mobile-nav .search-container {
-          margin: 20px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          font-size: 14px;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          margin-top: 5px;
-          padding: 0;
-          list-style: none;
-          max-height: 200px;
-          overflow-y: auto;
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 10px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .site-logo {
-          height: 24px;
-        }
-
-        .site-title-svg {
-          display: none;
-        }
-
-        /* Hero sections for mobile */
-        .home-hero,
-        .about-hero,
-        .services-hero,
-        .zh-hero {
-          margin-top: 50px;
-          min-height: 400px;
-          padding: 60px 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .hero-text {
-          padding: 0 15px;
-          margin-top: 40px;
-        }
-
-        .hero-text h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .hero-text p {
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-
-        /* Hide desktop elements */
-        .header-center,
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .lang-link {
-          font-size: 14px;
-          padding: 4px 8px;
-        }
-
-        /* Hide desktop navigation */
-        .site-nav {
-          display: none;
-        }
-
-        /* Hide desktop search */
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-      }
-
-      /* Base mobile menu styles */
-      .mobile-menu-button {
-        display: none;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
-
-      @media (max-width: 768px) {
-        body.menu-active {
-          overflow: hidden;
-        }
-
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-          background: none;
-          border: none;
-          padding: 0;
-        }
-
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(255, 255, 255, 0.98);
-          padding: 70px 20px 20px;
-          z-index: 998;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .mobile-nav.active {
-          display: block;
-          animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 18px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-          transition: color 0.2s ease;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-          font-weight: 500;
-        }
-
-        .mobile-nav .search-container {
-          margin: 30px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 12px;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          font-size: 16px;
-          background: #f8f9fa;
-        }
-
-        .mobile-nav .search-container input:focus {
-          outline: none;
-          border-color: #3b82f6;
-          background: white;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #eee;
-          border-radius: 8px;
-          margin-top: 8px;
-          padding: 0;
-          list-style: none;
-          max-height: 300px;
-          overflow-y: auto;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 12px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-          font-size: 14px;
-        }
-      }
-
-      /* Base styles */
-      .header-center {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .site-nav {
-        display: flex;
-        gap: 2rem;
-      }
-
-      /* Mobile styles */
-      @media (max-width: 768px) {
-        /* Hide desktop navigation completely */
-        .header-center {
-          display: none !important;
-        }
-
-        .site-nav {
-          display: none !important;
-        }
-
-        /* Rest of mobile styles... */
-      }
-    </style>
   </head>
   <body>
-    <!-- Move mobile menu button outside header -->
-    <div class="mobile-menu-button">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/xenodennis/zh/" class="site-title">
+        <span class="text-logo">isA</span>
+      </a>
     </div>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="header-left">
-          <a href="/zh/" class="site-title">
-            <img src="/assets/images/isA.png" alt="isA" class="site-logo">
-          </a>
-        </div>
+    <div class="header-center">
+      <nav class="site-nav">
+        
+        
+          <a class="nav-link active" href="/xenodennis/zh/">首页</a>
+          <a class="nav-link " href="/xenodennis/zh/about-me/">关于我</a>
+          <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+        
+      </nav>
+    </div>
 
-        <div class="header-center">
-          <nav class="site-nav">
-            
-            
-              <a class="nav-link active" href="/zh/">首页</a>
-              <a class="nav-link " href="/zh/about-me/">关于我</a>
-              <a class="nav-link " href="/zh/my-services/">我的服务</a>
-            
-          </nav>
-        </div>
-
-        <div class="header-right">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="搜索文章和页面...">
-            <ul id="search-results"></ul>
-          </div>
-          
-          <div class="lang-switcher">
-            
-              <a class="lang-link" href="/">EN</a>
-              <span class="lang-separator">|</span>
-              <a class="lang-link active" href="/zh/">中</a>
-            
-          </div>
-        </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        
+          <a class="lang-link" href="/xenodennis/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link active" href="/xenodennis/zh/">中</a>
+        
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-button">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    
+      <a class="nav-link active" href="/xenodennis/zh/">首页</a>
+      <a class="nav-link " href="/xenodennis/zh/about-me/">关于我</a>
+      <a class="nav-link " href="/xenodennis/zh/my-services/">我的服务</a>
+    
+  </nav>
+</div> 
 
     <main>
       <div class="home-hero zh-hero">
@@ -617,8 +80,8 @@
         通过创新的技术解决方案和人工智能驱动的开发，将想法转化为现实
       </p>
       <div class="hero-cta">
-        <a href="/zh/about-me/" class="cta-button">了解更多</a>
-        <a href="/zh/my-services/" class="cta-button outline">查看服务</a>
+        <a href="/xenodennis/zh/about-me/" class="cta-button">了解更多</a>
+        <a href="/xenodennis/zh/my-services/" class="cta-button outline">查看服务</a>
       </div>
     </div>
 
@@ -650,13 +113,13 @@
               
                 <div class="post-categories">
                   
-                    <a href="/zh/category/digital-transformation/" class="category-tag">digital-transformation</a>
+                    <a href="/xenodennis/zh/category/digital-transformation/" class="category-tag">digital-transformation</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/zh/2024/03/20/welcome/">欢迎来到我的博客</a>
+              <a class="post-link" href="/xenodennis/zh/2024/03/20/welcome/">欢迎来到我的博客</a>
             </h2>
             
               <h3 class="post-subtitle">一段关于技术、设计和生活的旅程</h3>
@@ -668,7 +131,7 @@
           </div>
           
             <div class="post-thumbnail">
-              <a href="/zh/2024/03/20/welcome/" class="post-thumbnail-link">
+              <a href="/xenodennis/zh/2024/03/20/welcome/" class="post-thumbnail-link">
                 <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="欢迎来到我的博客" class="thumbnail-image">
               </a>
             </div>
@@ -682,15 +145,15 @@
               
                 <div class="post-categories">
                   
-                    <a href="/zh/category/machine-learning/" class="category-tag">machine-learning</a>
+                    <a href="/xenodennis/zh/category/machine-learning/" class="category-tag">machine-learning</a>
                   
-                    <a href="/zh/category/case-study/" class="category-tag">case-study</a>
+                    <a href="/xenodennis/zh/category/case-study/" class="category-tag">case-study</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/zh/2024/03/21/machine-failure-detection/">基于机器学习的设备故障预测</a>
+              <a class="post-link" href="/xenodennis/zh/2024/03/21/machine-failure-detection/">基于机器学习的设备故障预测</a>
             </h2>
             
               <h3 class="post-subtitle">科罗拉多大学波德分校机器学习课程案例研究</h3>
@@ -701,7 +164,7 @@
           </div>
           
             <div class="post-thumbnail">
-              <a href="/zh/2024/03/21/machine-failure-detection/" class="post-thumbnail-link">
+              <a href="/xenodennis/zh/2024/03/21/machine-failure-detection/" class="post-thumbnail-link">
                 <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80" alt="基于机器学习的设备故障预测" class="thumbnail-image">
               </a>
             </div>
@@ -715,19 +178,83 @@
               
                 <div class="post-categories">
                   
-                    <a href="/zh/category/ai开发/" class="category-tag">AI开发</a>
+                    <a href="/xenodennis/zh/category/ai/" class="category-tag">AI</a>
                   
                 </div>
               
             </div>
             <h2 class="post-title">
-              <a class="post-link" href="/zh/2025/03/25/Github_Dev_Tools/">探索AI开发的未来：GitHub最新工具之旅</a>
+              <a class="post-link" href="/xenodennis/zh/2025/03/25/Github_Dev_Tools/">SF_AI之旅: Github Dev Tools</a>
             </h2>
             
-            <p class="post-excerpt">AI开发的未来：一窥幕后精彩
+            <p class="post-excerpt">SF_AI：遇见未来，遇见更简单的AI开发
 
 </p>
           </div>
+          
+            <div class="post-thumbnail">
+              <a href="/xenodennis/zh/2025/03/25/Github_Dev_Tools/" class="post-thumbnail-link">
+                <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=3888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SF_AI之旅: Github Dev Tools" class="thumbnail-image">
+              </a>
+            </div>
+          
+        </article>
+      
+        <article class="post-preview">
+          <div class="post-content-preview">
+            <div class="post-meta">
+              <p class="post-date">2025年03月26日</p>
+              
+                <div class="post-categories">
+                  
+                    <a href="/xenodennis/zh/category/ai/" class="category-tag">AI</a>
+                  
+                </div>
+              
+            </div>
+            <h2 class="post-title">
+              <a class="post-link" href="/xenodennis/zh/2025/03/26/Google_AI_Production/">SF_AI之旅: Google AI Production</a>
+            </h2>
+            
+            <p class="post-excerpt">SF_AI：探秘Google AI生产线的幕后故事
+
+</p>
+          </div>
+          
+            <div class="post-thumbnail">
+              <a href="/xenodennis/zh/2025/03/26/Google_AI_Production/" class="post-thumbnail-link">
+                <img src="https://images.unsplash.com/photo-1741893041975-94a0e8656209?q=80&w=3871&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SF_AI之旅: Google AI Production" class="thumbnail-image">
+              </a>
+            </div>
+          
+        </article>
+      
+        <article class="post-preview">
+          <div class="post-content-preview">
+            <div class="post-meta">
+              <p class="post-date">2025年03月27日</p>
+              
+                <div class="post-categories">
+                  
+                    <a href="/xenodennis/zh/category/ai/" class="category-tag">AI</a>
+                  
+                </div>
+              
+            </div>
+            <h2 class="post-title">
+              <a class="post-link" href="/xenodennis/zh/2025/03/27/AI_Marketing/">SF_AI之旅: AI Marketing</a>
+            </h2>
+            
+            <p class="post-excerpt">SF_AI：神经符号AI引领营销新纪元
+
+</p>
+          </div>
+          
+            <div class="post-thumbnail">
+              <a href="/xenodennis/zh/2025/03/27/AI_Marketing/" class="post-thumbnail-link">
+                <img src="https://images.unsplash.com/photo-1741516600623-20799f115964?q=80&w=3871&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="SF_AI之旅: AI Marketing" class="thumbnail-image">
+              </a>
+            </div>
           
         </article>
       
@@ -743,7 +270,7 @@
           
             
             <li>
-              <a href="/zh/category/digital-transformation/" class="category-link ">
+              <a href="/xenodennis/zh/category/digital-transformation/" class="category-link ">
                 digital-transformation
                 <span class="post-count">1</span>
               </a>
@@ -751,7 +278,7 @@
           
             
             <li>
-              <a href="/zh/category/machine-learning/" class="category-link ">
+              <a href="/xenodennis/zh/category/machine-learning/" class="category-link ">
                 machine-learning
                 <span class="post-count">1</span>
               </a>
@@ -759,7 +286,7 @@
           
             
             <li>
-              <a href="/zh/category/case-study/" class="category-link ">
+              <a href="/xenodennis/zh/category/case-study/" class="category-link ">
                 case-study
                 <span class="post-count">1</span>
               </a>
@@ -767,9 +294,9 @@
           
             
             <li>
-              <a href="/zh/category/ai开发/" class="category-link ">
-                AI开发
-                <span class="post-count">1</span>
+              <a href="/xenodennis/zh/category/ai/" class="category-link ">
+                AI
+                <span class="post-count">3</span>
               </a>
             </li>
           
@@ -989,69 +516,18 @@
 </style> 
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-content">
-          © 2025 isA
-        </div>
+    <!-- Site Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        © 2025 isA
       </div>
-    </footer>
-
-    <!-- Simple Jekyll Search -->
-    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-    <script>
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      
-      SimpleJekyllSearch({
-        searchInput: searchInput,
-        resultsContainer: searchResults,
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: '未找到结果',
-        limit: 10,
-        fuzzy: false,
-        success: function() {
-          searchResults.classList.add('visible');
-        }
-      });
-
-      document.addEventListener('click', function(event) {
-        const isClickInside = searchInput.contains(event.target) || searchResults.contains(event.target);
-        if (!isClickInside) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('input', function() {
-        if (!this.value) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('click', function() {
-        if (this.value && searchResults.children.length > 0) {
-          searchResults.classList.add('visible');
-        }
-      });
-    </script>
-
-    <!-- Add mobile navigation -->
-    <div class="mobile-nav">
-      <nav>
-        
-          <a class="nav-link active" href="/zh/">首页</a>
-          <a class="nav-link " href="/zh/about-me/">关于我</a>
-          <a class="nav-link " href="/zh/my-services/">我的服务</a>
-        
-        <div class="search-container">
-          <input type="text" id="mobile-search-input" placeholder="搜索文章和页面...">
-          <ul id="mobile-search-results"></ul>
-        </div>
-      </nav>
     </div>
+  </div>
+</footer> 
 
-    <!-- Add mobile menu JavaScript -->
+    <!-- Mobile Navigation Script -->
     <script>
       document.querySelector('.mobile-menu-button').addEventListener('click', function() {
         this.classList.toggle('active');

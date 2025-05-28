@@ -4,970 +4,353 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Services - isA</title>
-    <link rel="icon" type="image/png" href="/assets/images/isA.png">
-    <link rel="apple-touch-icon" href="/assets/images/isA.png">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="image/png" href="/xenodennis/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/xenodennis/assets/images/isA.png">
+    <link rel="stylesheet" href="/xenodennis/assets/css/theme.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/common.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-      /* Header styles */
-      .site-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: white;
-        height: 80px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      }
-
-      .site-logo {
-        height: 60px;
-        width: auto;
-        display: block;
-        padding: 10px 0;
-      }
-
-      .header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .header-left {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Hero sections */
-      .home-hero,
-      .about-hero,
-      .services-hero {
-        margin-top: 80px;
-        min-height: 400px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      .hero-text {
-        text-align: center;
-        max-width: 800px;
-        padding: 0 20px;
-      }
-
-      .zh-hero {
-        margin-top: 60px;
-      }
-
-      main {
-        padding-top: 0; /* Remove main padding since hero sections handle it */
-      }
-
-      .post {
-        margin-top: 0; /* Remove top margin from post */
-        padding-top: 0; /* Remove top padding from post */
-      }
-
-      .post-cover {
-        position: relative;
-        margin: 0; /* Remove all margins */
-        width: 100%;
-        height: 400px;
-      }
-
-      .post-cover img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* Post list spacing */
-      .post-list {
-        margin: 0;
-        padding: 0;
-      }
-
-      .post-list > li {
-        margin-bottom: 1.5rem; /* Reduce space between posts */
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(230, 230, 230, 1);
-      }
-
-      .post-list > li:last-child {
-        border-bottom: none;
-      }
-
-      /* Post meta with read time */
-      .post-meta {
-        color: rgba(117, 117, 117, 1);
-        font-size: 0.875rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin: 0.5rem 0;
-      }
-
-      /* Category colors */
-      .post-categories {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .category-tag {
-        padding: 0.2rem 0.8rem;
-        border-radius: 100px;
-        font-size: 0.875rem;
-        text-decoration: none;
-        background: #f3f4f6;
-        color: #3b82f6;
-        transition: all 0.2s ease;
-      }
-
-      .category-tag:hover {
-        background: #3b82f6;
-        color: white;
-      }
-
-      /* Post excerpt */
-      .post-excerpt {
-        margin: 1rem 0;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: rgba(41, 41, 41, 0.9);
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; /* Show 4 lines */
-        -webkit-box-orient: vertical;
-      }
-
-      /* Mobile responsive styles */
-      @media (max-width: 768px) {
-        .site-header {
-          height: 70px;  /* Adjusted for mobile */
-        }
-
-        .site-logo {
-          height: 50px;  /* Adjusted for mobile */
-          padding: 8px 0;
-        }
-
-        .header-inner {
-          padding: 0 15px;
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-
-        .mobile-menu-button span {
-          display: block;
-          position: absolute;
-          height: 2px;
-          width: 100%;
-          background: #333;
-          border-radius: 2px;
-          opacity: 1;
-          left: 0;
-          transform: rotate(0deg);
-          transition: .25s ease-in-out;
-        }
-
-        .mobile-menu-button span:nth-child(1) { top: 4px; }
-        .mobile-menu-button span:nth-child(2) { top: 11px; }
-        .mobile-menu-button span:nth-child(3) { top: 18px; }
-
-        .mobile-menu-button.active span:nth-child(1) {
-          top: 11px;
-          transform: rotate(45deg);
-        }
-
-        .mobile-menu-button.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-button.active span:nth-child(3) {
-          top: 11px;
-          transform: rotate(-45deg);
-        }
-
-        /* Mobile navigation */
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 50px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: white;
-          padding: 20px;
-          z-index: 999;
-          overflow-y: auto;
-        }
-
-        .mobile-nav.active {
-          display: block;
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 16px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-        }
-
-        .mobile-nav .search-container {
-          margin: 20px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          font-size: 14px;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          margin-top: 5px;
-          padding: 0;
-          list-style: none;
-          max-height: 200px;
-          overflow-y: auto;
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 10px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .site-logo {
-          height: 24px;
-        }
-
-        .site-title-svg {
-          display: none;
-        }
-
-        /* Hero sections for mobile */
-        .home-hero,
-        .about-hero,
-        .services-hero,
-        .zh-hero {
-          margin-top: 50px;
-          min-height: 400px;
-          padding: 60px 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .hero-text {
-          padding: 0 15px;
-          margin-top: 40px;
-        }
-
-        .hero-text h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-
-        .hero-text p {
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-
-        /* Hide desktop elements */
-        .header-center,
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .lang-link {
-          font-size: 14px;
-          padding: 4px 8px;
-        }
-
-        /* Hide desktop navigation */
-        .site-nav {
-          display: none;
-        }
-
-        /* Hide desktop search */
-        .header-right .search-container {
-          display: none;
-        }
-
-        /* Center logo */
-        .header-left {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        /* Language switcher */
-        .lang-switcher {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        /* Mobile menu button */
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-        }
-      }
-
-      /* Base mobile menu styles */
-      .mobile-menu-button {
-        display: none;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
-
-      @media (max-width: 768px) {
-        body.menu-active {
-          overflow: hidden;
-        }
-
-        .mobile-menu-button {
-          display: block;
-          width: 24px;
-          height: 24px;
-          position: fixed;
-          left: 15px;
-          top: 23px;  /* Adjusted to center with new header height */
-          z-index: 1002;
-          cursor: pointer;
-          background: none;
-          border: none;
-          padding: 0;
-        }
-
-        .mobile-nav {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(255, 255, 255, 0.98);
-          padding: 70px 20px 20px;
-          z-index: 998;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .mobile-nav.active {
-          display: block;
-          animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        .mobile-nav nav {
-          margin-top: 20px;
-        }
-
-        .mobile-nav .nav-link {
-          display: block;
-          padding: 15px 0;
-          font-size: 18px;
-          color: #333;
-          text-decoration: none;
-          border-bottom: 1px solid #eee;
-          transition: color 0.2s ease;
-        }
-
-        .mobile-nav .nav-link:last-child {
-          border-bottom: none;
-        }
-
-        .mobile-nav .nav-link.active {
-          color: #3b82f6;
-          font-weight: 500;
-        }
-
-        .mobile-nav .search-container {
-          margin: 30px 0;
-          position: relative;
-        }
-
-        .mobile-nav .search-container input {
-          width: 100%;
-          padding: 12px;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          font-size: 16px;
-          background: #f8f9fa;
-        }
-
-        .mobile-nav .search-container input:focus {
-          outline: none;
-          border-color: #3b82f6;
-          background: white;
-        }
-
-        #mobile-search-results {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: white;
-          border: 1px solid #eee;
-          border-radius: 8px;
-          margin-top: 8px;
-          padding: 0;
-          list-style: none;
-          max-height: 300px;
-          overflow-y: auto;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          display: none;
-        }
-
-        #mobile-search-results.visible {
-          display: block;
-        }
-
-        #mobile-search-results li {
-          padding: 12px;
-          border-bottom: 1px solid #eee;
-        }
-
-        #mobile-search-results li:last-child {
-          border-bottom: none;
-        }
-
-        #mobile-search-results a {
-          color: #333;
-          text-decoration: none;
-          display: block;
-          font-size: 14px;
-        }
-      }
-
-      /* Base styles */
-      .header-center {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .site-nav {
-        display: flex;
-        gap: 2rem;
-      }
-
-      /* Mobile styles */
-      @media (max-width: 768px) {
-        /* Hide desktop navigation completely */
-        .header-center {
-          display: none !important;
-        }
-
-        .site-nav {
-          display: none !important;
-        }
-
-        /* Rest of mobile styles... */
-      }
-    </style>
   </head>
   <body>
-    <!-- Move mobile menu button outside header -->
-    <div class="mobile-menu-button">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/xenodennis/" class="site-title">
+        <span class="text-logo">isA</span>
+      </a>
     </div>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="header-left">
-          <a href="/" class="site-title">
-            <img src="/assets/images/isA.png" alt="isA" class="site-logo">
-          </a>
-        </div>
+    <div class="header-center">
+      <nav class="site-nav">
+        
+        
+          <a class="nav-link " href="/xenodennis/">Home</a>
+          <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+          <a class="nav-link active" href="/xenodennis/my-services/">My Services</a>
+        
+      </nav>
+    </div>
 
-        <div class="header-center">
-          <nav class="site-nav">
-            
-            
-              <a class="nav-link " href="/">Home</a>
-              <a class="nav-link " href="/about-me/">About Me</a>
-              <a class="nav-link active" href="/my-services/">My Services</a>
-            
-          </nav>
-        </div>
-
-        <div class="header-right">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="search-results"></ul>
-          </div>
-          
-          <div class="lang-switcher">
-            
-              <a class="lang-link active" href="/">EN</a>
-              <span class="lang-separator">|</span>
-              <a class="lang-link" href="/zh/">中</a>
-            
-          </div>
-        </div>
+    <div class="header-right">
+      <div class="lang-switcher">
+        
+          <a class="lang-link active" href="/xenodennis/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link" href="/xenodennis/zh/">中</a>
+        
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-button">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    
+      <a class="nav-link " href="/xenodennis/">Home</a>
+      <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+      <a class="nav-link active" href="/xenodennis/my-services/">My Services</a>
+    
+  </nav>
+</div> 
 
     <main>
       <div class="services-container">
-  <!-- Hero Section -->
-  <section class="services-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Innovative Solutions</h1>
-      <p class="hero-subtitle">Transforming Ideas into Digital Reality</p>
-      <div class="tech-line"></div>
-    </div>
-  </section>
+  <div class="services-header">
+    <h1 class="page-title">My Services</h1>
+    <p class="lead">Professional consulting and technical solutions for your digital transformation</p>
+  </div>
 
-  <!-- Services Grid -->
-  <section class="services-grid">
-    <div class="service-card" data-aos="fade-up">
-      <div class="service-icon">
-        <svg class="tech-hexagon" viewBox="0 0 24 24">
-          <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8L20 9l-8 4-8-4 8-4.2zM4 16.5v-6l8 4v6l-8-4zm16 0l-8 4v-6l8-4v6z"/>
-        </svg>
-      </div>
+  <div class="services-content">
+    <section class="service-section">
       <h2>AI Product Design</h2>
       <p>Strategic product design that transforms business challenges into AI-powered solutions. From concept to architecture, I help organizations design scalable and impactful AI/data products.</p>
-      <ul class="service-features">
-        <li>Business Requirements Analysis</li>
-        <li>Data Strategy & Architecture</li>
-        <li>AI Solution Blueprint</li>
-        <li>Product Roadmap Planning</li>
-      </ul>
-    </div>
-
-    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="service-icon">
-        <svg class="tech-hexagon" viewBox="0 0 24 24">
-          <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
-        </svg>
+      
+      <div class="service-details">
+        <ul class="service-features">
+          <li>Business Requirements Analysis</li>
+          <li>Data Strategy & Architecture</li>
+          <li>AI Solution Blueprint</li>
+          <li>Product Roadmap Planning</li>
+        </ul>
       </div>
+    </section>
+
+    <section class="service-section">
       <h2>AI Product Development</h2>
       <p>End-to-end development of AI and data products, from data preparation to model deployment. Delivering production-ready solutions with measurable business impact.</p>
-      <ul class="service-features">
-        <li>Data Extraction & Cleaning</li>
-        <li>Feature Engineering & Selection</li>
-        <li>Model Training & Optimization</li>
-        <li>MLOps & Production Deployment</li>
-      </ul>
-    </div>
-
-    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="service-icon">
-        <svg class="tech-hexagon" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
+      
+      <div class="service-details">
+        <ul class="service-features">
+          <li>Data Extraction & Cleaning</li>
+          <li>Feature Engineering & Selection</li>
+          <li>Model Training & Optimization</li>
+          <li>MLOps & Production Deployment</li>
+        </ul>
       </div>
+    </section>
+
+    <section class="service-section">
       <h2>Digital Consulting</h2>
       <p>Strategic guidance for digital transformation initiatives. I help organizations navigate the complexities of digital evolution and AI adoption.</p>
-      <ul class="service-features">
-        <li>Digital Strategy Development</li>
-        <li>Technology Stack Assessment</li>
-        <li>Process Digitalization</li>
-        <li>Change Management</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Process Section -->
-  <section class="process-section">
-    <h2 class="section-title">My Approach</h2>
-    <div class="process-steps">
-      <div class="process-step" data-aos="fade-right">
-        <div class="step-number">01</div>
-        <h3>Discovery</h3>
-        <p>Deep dive into your requirements and objectives to create a comprehensive project roadmap.</p>
+      
+      <div class="service-details">
+        <ul class="service-features">
+          <li>Digital Strategy Development</li>
+          <li>Technology Stack Assessment</li>
+          <li>Process Digitalization</li>
+          <li>Change Management</li>
+        </ul>
       </div>
+    </section>
 
-      <div class="process-step" data-aos="fade-right" data-aos-delay="100">
-        <div class="step-number">02</div>
-        <h3>Design</h3>
-        <p>Create detailed technical specifications and architecture designs aligned with your goals.</p>
-      </div>
-
-      <div class="process-step" data-aos="fade-right" data-aos-delay="200">
-        <div class="step-number">03</div>
-        <h3>Development</h3>
-        <p>Implement solutions using cutting-edge technologies and best practices.</p>
-      </div>
-
-      <div class="process-step" data-aos="fade-right" data-aos-delay="300">
-        <div class="step-number">04</div>
-        <h3>Deployment</h3>
-        <p>Seamless deployment with comprehensive testing and documentation.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Showcase -->
-  <section class="project-showcase">
-    <h2 class="section-title">Featured Project</h2>
-    <div class="showcase-container">
-      <div class="showcase-card" data-aos="fade-up">
-        <h3>ML-Based Marketing Intelligence Platform</h3>
-        <p class="showcase-subtitle">End-to-End User Marketing Automation Solution</p>
-        
-        <div class="showcase-content">
-          <div class="data-section">
-            <h4><i class="fas fa-database"></i> Data Integration</h4>
-            <div class="data-grid">
-              <div class="data-item">
-                <h5>User Statistics</h5>
-                <p>Demographics, location, language, occupation</p>
-                <span class="tag">Regional Strategy</span>
-                <span class="tag">Product Selection</span>
-              </div>
-              <div class="data-item">
-                <h5>Transaction Data</h5>
-                <p>Purchase history, frequency, CLV, RFM analysis</p>
-                <span class="tag">Retention</span>
-                <span class="tag">Viral Marketing</span>
-              </div>
-              <div class="data-item">
-                <h5>Behavioral Data</h5>
-                <p>Cart actions, browsing patterns, social engagement</p>
-                <span class="tag">Personalization</span>
-                <span class="tag">Smart Marketing</span>
-              </div>
-              <div class="data-item">
-                <h5>Campaign Data</h5>
-                <p>Push history, participation, content performance</p>
-                <span class="tag">Campaign Optimization</span>
-                <span class="tag">Content Strategy</span>
-              </div>
-            </div>
+    <section class="process-section">
+      <h2>My Approach</h2>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-icon">
+            <i class="fas fa-search"></i>
           </div>
+          <h3>Discovery</h3>
+          <p>Deep dive into your requirements and objectives to create a comprehensive project roadmap.</p>
+        </div>
 
-          <div class="model-section">
-            <h4><i class="fas fa-brain"></i> AI Models</h4>
-            <div class="model-grid">
-              <div class="model-item">
-                <h5>User Clustering</h5>
-                <p>Unsupervised learning for customer segmentation</p>
-                <ul>
-                  <li>Silhouette coefficient optimization</li>
-                  <li>Conversion rate validation</li>
-                </ul>
-              </div>
-              <div class="model-item">
-                <h5>Collaborative Recommendation</h5>
-                <p>Matrix factorization for personalized recommendations</p>
-                <ul>
-                  <li>Precision and recall metrics</li>
-                  <li>CTR and conversion tracking</li>
-                </ul>
-              </div>
-              <div class="model-item">
-                <h5>Content Generation</h5>
-                <p>Transformer-based personalized content creation</p>
-                <ul>
-                  <li>Email open rate optimization</li>
-                  <li>Content quality assessment</li>
-                </ul>
-              </div>
-              <div class="model-item">
-                <h5>Campaign Optimization</h5>
-                <p>RL-based marketing strategy optimization</p>
-                <ul>
-                  <li>Timing and frequency optimization</li>
-                  <li>MROI maximization</li>
-                </ul>
-              </div>
-            </div>
+        <div class="process-step">
+          <div class="step-icon">
+            <i class="fas fa-drafting-compass"></i>
           </div>
+          <h3>Design</h3>
+          <p>Create detailed technical specifications and architecture designs aligned with your goals.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Development</h3>
+          <p>Implement solutions using cutting-edge technologies and best practices.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Deployment</h3>
+          <p>Seamless deployment with comprehensive testing and documentation.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact CTA -->
-  <section class="contact-cta">
-    <div class="cta-content">
+    <section class="contact-section">
       <h2>Ready to Transform Your Ideas?</h2>
       <p>Let's discuss how I can help you achieve your technical goals.</p>
       <a href="mailto:your-email@example.com" class="cta-button">Get in Touch</a>
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 
-<!-- AOS Animation Library -->
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
-</script> 
-
 <style>
-.project-showcase {
-  padding: 4rem 2rem;
-  background: #f8fafc;
-}
-
-.showcase-container {
-  max-width: 1200px;
+.services-container {
+  max-width: 800px;
   margin: 0 auto;
+  padding: 1.5rem;
 }
 
-.showcase-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.showcase-subtitle {
-  color: #3b82f6;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-.data-section, .model-section {
+.services-header {
+  text-align: center;
   margin-bottom: 3rem;
 }
 
-.data-section h4, .model-section h4 {
-  font-size: 1.5rem;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.data-grid, .model-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.data-item, .model-item {
-  background: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.data-item:hover, .model-item:hover {
-  transform: translateY(-5px);
-}
-
-.data-item h5, .model-item h5 {
-  color: #3b82f6;
-  font-size: 1.1rem;
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
-.data-item p, .model-item p {
-  color: #4b5563;
-  margin-bottom: 1rem;
-}
-
-.tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: #dbeafe;
-  color: #1d4ed8;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.model-item ul {
-  list-style: none;
-  padding: 0;
+.lead {
+  font-size: 1.25rem;
+  color: var(--secondary);
   margin: 0;
 }
 
-.model-item ul li {
+.service-section {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.service-section:last-of-type {
+  border-bottom: none;
+}
+
+.service-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.service-section p {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-details {
+  background: var(--secondary-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.service-features {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.service-features li {
+  margin-bottom: 0.75rem;
+  color: var(--secondary);
+}
+
+.service-features li:last-child {
+  margin-bottom: 0;
+}
+
+.process-section {
+  margin: 4rem 0;
+}
+
+.process-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: #4b5563;
+  overflow: hidden;
 }
 
-.model-item ul li:before {
-  content: "•";
-  color: #3b82f6;
-  position: absolute;
-  left: 0;
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-  .project-showcase {
-    padding: 2rem 1rem;
-  }
-  
-  .showcase-card {
-    padding: 1.5rem;
-  }
-  
-  .data-grid, .model-grid {
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.step-icon i {
+  font-size: 1.5rem;
+}
+
+.process-step h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.process-step p {
+  color: var(--secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contact-section {
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--secondary-light);
+  border-radius: 8px;
+}
+
+.contact-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.contact-section p {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-heading);
+}
+
+.cta-button:hover {
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .process-steps {
     grid-template-columns: 1fr;
   }
 }
 </style> 
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-content">
-          © 2025 isA
-        </div>
+    <!-- Site Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        © 2025 isA
       </div>
-    </footer>
-
-    <!-- Simple Jekyll Search -->
-    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-    <script>
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.getElementById('search-results');
-      
-      SimpleJekyllSearch({
-        searchInput: searchInput,
-        resultsContainer: searchResults,
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-        noResultsText: '',
-        limit: 10,
-        fuzzy: false,
-        success: function() {
-          searchResults.classList.add('visible');
-        }
-      });
-
-      document.addEventListener('click', function(event) {
-        const isClickInside = searchInput.contains(event.target) || searchResults.contains(event.target);
-        if (!isClickInside) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('input', function() {
-        if (!this.value) {
-          searchResults.classList.remove('visible');
-        }
-      });
-
-      searchInput.addEventListener('click', function() {
-        if (this.value && searchResults.children.length > 0) {
-          searchResults.classList.add('visible');
-        }
-      });
-    </script>
-
-    <!-- Add mobile navigation -->
-    <div class="mobile-nav">
-      <nav>
-        
-          <a class="nav-link " href="/">Home</a>
-          <a class="nav-link " href="/about-me/">About Me</a>
-          <a class="nav-link active" href="/my-services/">My Services</a>
-        
-        <div class="search-container">
-          <input type="text" id="mobile-search-input" placeholder="">
-          <ul id="mobile-search-results"></ul>
-        </div>
-      </nav>
     </div>
+  </div>
+</footer> 
 
-    <!-- Add mobile menu JavaScript -->
+    <!-- Mobile Navigation Script -->
     <script>
       document.querySelector('.mobile-menu-button').addEventListener('click', function() {
         this.classList.toggle('active');
