@@ -9,7 +9,8 @@ layout: default
     </div>
     
     <div class="post-list">
-      {% for post in site.posts_en %}
+      {% assign sorted_posts = site.posts_en | sort: 'date' | reverse %}
+      {% for post in sorted_posts %}
         <article class="post-preview">
           <div class="post-content-preview">
             {% if post.categories %}

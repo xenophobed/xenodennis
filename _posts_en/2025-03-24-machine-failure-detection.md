@@ -2,7 +2,7 @@
 layout: post
 title: "Machine Failure Detection Using Machine Learning"
 subtitle: "A Case Study from University of Colorado Boulder ML Course"
-date: 2025-01-04
+date: 2025-03-24
 categories: [machine-learning, case-study]
 tags: [python, ml, predictive-maintenance]
 cover_image: https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80

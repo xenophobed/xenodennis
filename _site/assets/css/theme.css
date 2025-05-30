@@ -120,4 +120,90 @@ a:hover {
 
 .section-primary h2, .section-primary h3 {
   color: white;
+}
+
+/* Post Images */
+.post-content figure {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.post-content figure img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+
+.post-content figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Enhance image display for blog posts */
+.post-content .image-container {
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  overflow: visible;
+}
+
+.post-content .image-container img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-content .image-container.large {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content .image-container.medium {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content .image-container.small {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content .image-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+  padding: 0 10px;
+}
+
+/* 确保移动设备上的图片显示 */
+@media (max-width: 768px) {
+  .post-content .image-container.large,
+  .post-content .image-container.medium,
+  .post-content .image-container.small {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .post-content .image-container img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
 } 

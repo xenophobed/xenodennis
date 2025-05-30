@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Potential Outcomes Causal Inference Framework - isA</title>
+    <link rel="icon" type="image/png" href="/xenodennis/assets/images/isA.png">
+    <link rel="apple-touch-icon" href="/xenodennis/assets/images/isA.png">
+    <link rel="stylesheet" href="/xenodennis/assets/css/theme.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/common.css">
+    <link rel="stylesheet" href="/xenodennis/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+  </head>
+  <body>
+    <!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/xenodennis/" class="site-title">
+        <span class="text-logo">isA</span>
+      </a>
+    </div>
+
+    <div class="header-center">
+      <nav class="site-nav">
+        
+        
+          <a class="nav-link " href="/xenodennis/">Home</a>
+          <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+          <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+        
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <div class="lang-switcher">
+        
+          <a class="lang-link active" href="/xenodennis/">EN</a>
+          <span class="lang-separator">|</span>
+          <a class="lang-link" href="/xenodennis/zh/">中</a>
+        
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-button">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <nav>
+    
+      <a class="nav-link " href="/xenodennis/">Home</a>
+      <a class="nav-link " href="/xenodennis/about-me/">About Me</a>
+      <a class="nav-link " href="/xenodennis/my-services/">My Services</a>
+    
+  </nav>
+</div> 
+
+    <main>
+      <article class="post">
+  
+    <div class="post-cover">
+      <img src="https://images.unsplash.com/photo-1741516600623-20799f115964?q=80&w=3871&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Potential Outcomes Causal Inference Framework">
+      
+        <p class="caption">Causal Inference Potentail Outcomes</p>
+      
+    </div>
+  
+
+  <header class="post-header">
+    <h1 class="post-title">Potential Outcomes Causal Inference Framework</h1>
+    
+    
+    <div class="post-meta">
+      <time datetime="2025-05-30T00:00:00-07:00">
+        May 30, 2025
+      </time>
+      <span class="separator">·</span>
+      <span class="read-time">
+        
+        
+        5 min read
+      </span>
+      
+        <span class="separator">·</span>
+        <span class="post-categories">
+          
+            <a href="/xenodennis/category/datascience/" class="category-tag">DataScience</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h3 id="potential-outcomes-notation">Potential Outcomes Notation</h3>
+
+<ul>
+  <li>
+    <p><strong>Z</strong> : represents the treatment conditions ( <em>it could be categorical or continuous variable</em> )</p>
+  </li>
+  <li>
+    <p><strong>Y</strong> : represents the observed value of the outcome variable</p>
+  </li>
+</ul>
+
+<p>In the potential outcomes framework, we consider how the Y values we observe would change if the treatment were different</p>
+
+<ul>
+  <li>When $Z$ is binary, the two potential outcomes are represented with $Y_0$ and $Y_1$</li>
+</ul>
+
+<div class="image-container small">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/Theoretical_ITE.png" alt="Individual Treatment Effect (ITE)" />
+  <span class="image-caption">Figure 1: Individual Treatment Effect (ITE) represents the difference between potential outcomes Y₁ and Y₀ for each individual</span>
+</div>
+
+<h3 id="a-missing-data-problem">A Missing Data Problem</h3>
+
+<p>If we knew both potential observations for every individual, we could use them to estimate several different statistics that summarize the effect of the treatment:</p>
+
+<p> The <span style="color: blue; font-weight: bold;">individual treatment effect(ITE)</span> is computed as Y₀ - Y₁. This statistic directly compares the two potential outcomes for each individual</p>
+
+<p>Hold up! You may be wondering, “How are we supposed to calculate the individual treatment effect if we can never observe the counterfactual outcome?”</p>
+
+<div class="image-container small">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/Reality_ITE.png" alt="Reality of Individual Treatment Effect (ITE)" />
+  <span class="image-caption">Figure 2: In reality, we can only observe one potential outcome for each individual - either Y₁ or Y₀, but never both</span>
+</div>
+
+<p>Indeed, causal inference is essentially a missing data problem; since we can only observe the outcome that actually happened, we are always missing the counterfactual outcome.</p>
+
+<h3 id="estimating-the-ate">Estimating the ATE</h3>
+
+<p>Because we can never know both potential outcomes for an individual, we need to use the randomization method to estimate the causal effects.</p>
+
+<p><span style="color: blue; font-weight: bold;">Randomization</span> is a method of treatment group assignment that is essentially a coin flip to determine whether an individual receives the treatment or the control. This ensures that, for a large enough sample size, the treatment groups will be similar on average with respect to all factors EXCEPT for the treatment condition.</p>
+
+<div class="image-container medium">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/Estimated_ATE.png" alt="Estimated Average Treatment Effect (ATE)" />
+  <span class="image-caption">Figure 3: Estimated Average Treatment Effect (ATE) represents the difference between the average outcomes of treated and control groups</span>
+</div>
+
+<h3 id="confounders-and-selection-bias">Confounders and Selection Bias</h3>
+
+<p>A <strong>confounder</strong> is a variable that influences both the treatment and the outcome, creating a spurious association between them. Think of it as a “third variable” that muddles the true causal relationship.</p>
+
+<p><strong>Selection bias</strong> occurs when the way participants are selected or assigned to groups creates systematic differences between groups that affect the outcome.</p>
+
+<h4 id="real-life-example-coffee-and-heart-disease">Real-Life Example: Coffee and Heart Disease</h4>
+
+<p>Let’s illustrate both concepts with a study examining the relationship between coffee consumption and heart disease:</p>
+
+<p><strong>Confounder Example:</strong></p>
+<ul>
+  <li>Treatment: Coffee consumption (high vs. low)</li>
+  <li>Outcome: Heart disease</li>
+  <li>Confounder: Smoking</li>
+</ul>
+
+<p>In this case, smoking is a confounder because:</p>
+<ol>
+  <li>Smokers tend to drink more coffee</li>
+  <li>Smoking independently increases heart disease risk</li>
+  <li>Without accounting for smoking, we might falsely conclude that coffee causes heart disease</li>
+</ol>
+
+<p><strong>Selection Bias Example:</strong>
+If we only study coffee drinkers who visit coffee shops in the morning, we might miss:</p>
+<ul>
+  <li>People who drink coffee at work</li>
+  <li>People who brew coffee at home</li>
+  <li>People who don’t drink coffee at all</li>
+</ul>
+
+<p>This selection bias could lead to incorrect conclusions about the relationship between coffee and heart disease.</p>
+
+<h2 id="estimating-the-ate-with-counfounders">Estimating the ATE with counfounders</h2>
+
+<p>Suppose that instead of randomizing patients to receive therapy animal services, we allow the twelve hospital patients to CHOOSE whether or not they want therapy. Imagine that we also have data for a new confounding variable X that represents whether an individual does (X = 1) or does not (X = 0) have a diagnosis of anxiety disorder. Here, X is a confounder and impacts both the treatment and the outcome: patients who have anxiety might be more likely to choose to receive therapy animal services AND have higher cortisol levels generally.</p>
+
+<div class="image-container medium">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/Nonrandomized_treatment_ignoring_X.png" alt="Nonrandomized Treatment Ignoring X" />
+  <span class="image-caption">Figure 4: Nonrandomized treatment assignment ignoring the confounding variable X (anxiety diagnosis)</span>
+</div>
+
+<p>This confounding is problematic because it means there may be more people with anxiety in the treatment group than in the control group. More people with anxiety means the treatment group may have a higher average cortisol level compared to that of the control group before therapy animal services even occur!</p>
+
+<div class="image-container small">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/estimated_ATE_X=1.png" alt="Estimated ATE for X=1" />
+  <span class="image-caption">Figure 5: Estimated Average Treatment Effect (ATE) for patients with anxiety (X=1)</span>
+</div>
+
+<p>When the treatment groups are unbalanced with respect to confounders, the treatment groups are not exchangeable: we would observe different outcomes if the treatment groups swapped treatment conditions.</p>
+
+<div class="image-container small">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/estimated_ATE_X=0.png" alt="Estimated ATE for X=0" />
+  <span class="image-caption">Figure 6: Estimated Average Treatment Effect (ATE) for patients without anxiety (X=0)</span>
+</div>
+
+<p>To avoid making poor comparisons between potentially imbalanced treatment groups, we have to be able to assume conditional exchangeablility:</p>
+
+<p><strong>Conditional exchangeability</strong> means that the treatment groups are exchangeable if we take into account confounding variables.This is also called <em>ignorability</em> or <em>unconfoundedness</em>.</p>
+
+<p>By taking anxiety diagnosis (variable X) into account, we avoid getting a biased estimate of the cortisol levels produced by those receiving therapy animal services in comparison to those who do not.</p>
+
+<h2 id="other-assumptions">Other Assumptions</h2>
+
+<blockquote>
+  <p>Stable Unit Treatment Value Assumption (SUTVA)</p>
+</blockquote>
+
+<ol>
+  <li>An individual’s treatment assignment doesn’t impact the outcome of other individuals. Using the example of the hospital patients, this would mean that one individual getting therapy animal services doesn’t impact the stress level of other individuals in the hospital.</li>
+  <li>The treatment (or control) is applied exactly the same way to all patients. For example, the patients receiving therapy animal services should receive therapy for the same amount of time and ideally from the same exact animal to ensure consistent treatment.</li>
+</ol>
+
+<blockquote>
+  <p>overlap</p>
+</blockquote>
+
+<p>The assumption of overlap means that all subgroups of patients divided by their characteristics have a positive, non-zero probability of getting either treatment assignment. Overlap is also referred to as the common support or positivity assumption.</p>
+
+<div class="image-container medium">
+  <img src="/xenodennis/assets/posts_assets/2025-05-30/assumptions.png" alt="Assumptions" />
+  <span class="image-caption">Figure 7: Key assumptions for causal inference</span>
+</div>
+
+<h2 id="causal-inference-process">Causal Inference Process</h2>
+
+<p>We can think of causal inference as a two-step process.</p>
+
+<ol>
+  <li>Identification: During this stage we determine which causal estimand we will estimate based both on what we want to know and on what we are able to compute. We must also determine whether we will be able to meet the three assumptions in order to infer that the relationship is causal in nature.
+    <ol>
+      <li>Conditional Exchangeability</li>
+      <li>SUTVA</li>
+      <li>Overlap</li>
+    </ol>
+  </li>
+  <li>Estimation: Now that we’ve reasoned what can compute and that this measure will reflect a causal relationship between variables, we must carry out the statistical model to compute the treatment effect.</li>
+</ol>
+
+
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <span class="tag">Causal Inference</span>
+      
+    </div>
+  
+</article>
+
+<style>
+.post {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.post-cover {
+  margin: -2rem -1rem 2rem;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-cover .caption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  font-family: var(--font-heading);
+}
+
+.post-subtitle {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.separator {
+  color: var(--text-muted);
+}
+
+.post-categories {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.category-tag {
+  padding: 0.2rem 0.8rem;
+  background: var(--secondary-light);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.category-tag:hover {
+  background: var(--border-color);
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  font-family: var(--font-body);
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-content p img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  padding: 0 10%;
+}
+
+/* Jupyter Notebook Styles */
+.highlight {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--secondary-light);
+  overflow-x: auto;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 0;
+}
+
+.input_area pre {
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--secondary-light);
+  border-radius: 4px;
+}
+
+.output_area pre {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  background: var(--background);
+  border-radius: 4px;
+}
+
+.output_area img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.dataframe {
+  margin: 1rem 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.dataframe th, .dataframe td {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.dataframe thead th {
+  background: var(--secondary-light);
+}
+
+.post-tags {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: var(--secondary-light);
+  color: var(--text-muted);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .post-cover {
+    height: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .post-content img {
+    max-width: 85%;
+  }
+}
+
+/* 特定容器中的图片样式 */
+.image-container {
+  width: 100%;
+  margin: 3rem auto;
+  text-align: center;
+  overflow: visible;
+}
+
+.image-container img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  object-fit: contain;
+}
+
+.image-container.large {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.large img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-container.medium {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.medium img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-container.small {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.small img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+  padding: 0 5%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 调整图片容器宽度，确保图片完整显示 */
+@media (max-width: 768px) {
+  .image-container.large,
+  .image-container.medium,
+  .image-container.small {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* 图片容器增强样式，确保图片完整显示 */
+.post-content .image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+  margin: 3rem auto;
+  overflow: visible;
+}
+
+.post-content .image-container img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* 确保图片不超出容器 */
+.post-content img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+</style>
+
+ 
+    </main>
+
+    <!-- Site Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        © 2025 isA
+      </div>
+    </div>
+  </div>
+</footer> 
+
+    <!-- Mobile Navigation Script -->
+    <script>
+      document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.querySelector('.mobile-nav').classList.toggle('active');
+        document.body.classList.toggle('menu-active');
+      });
+    </script>
+  </body>
+</html> 

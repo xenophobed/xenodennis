@@ -206,6 +206,7 @@
   margin: -2rem -1rem 2rem;
   height: 400px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .post-cover img {
@@ -216,7 +217,7 @@
 
 .post-cover .caption {
   text-align: center;
-  color: rgba(117, 117, 117, 1);
+  color: var(--text-muted);
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
@@ -231,17 +232,20 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  color: var(--primary);
+  font-family: var(--font-heading);
 }
 
 .post-subtitle {
   font-size: 1.5rem;
-  color: rgba(41, 41, 41, 0.9);
+  color: var(--secondary);
   font-weight: 400;
   margin-bottom: 1rem;
+  font-family: var(--font-heading);
 }
 
 .post-meta {
-  color: rgba(117, 117, 117, 1);
+  color: var(--text-muted);
   font-size: 0.875rem;
   margin-bottom: 2rem;
   display: flex;
@@ -251,7 +255,7 @@
 }
 
 .separator {
-  color: rgba(117, 117, 117, 1);
+  color: var(--text-muted);
 }
 
 .post-categories {
@@ -261,18 +265,65 @@
 
 .category-tag {
   padding: 0.2rem 0.8rem;
-  background: rgba(242, 242, 242, 1);
-  color: rgba(41, 41, 41, 1);
+  background: var(--secondary-light);
+  color: var(--primary);
   border-radius: 100px;
   font-size: 0.875rem;
   text-decoration: none;
   margin: 0 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.category-tag:hover {
+  background: var(--border-color);
 }
 
 .post-content {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: rgba(41, 41, 41, 1);
+  color: var(--secondary);
+  font-family: var(--font-body);
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3, 
+.post-content h4, 
+.post-content h5, 
+.post-content h6 {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-content p img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  padding: 0 10%;
 }
 
 /* Jupyter Notebook Styles */
@@ -280,7 +331,7 @@
   margin: 1.5rem 0;
   padding: 1rem;
   border-radius: 8px;
-  background: #f6f8fa;
+  background: var(--secondary-light);
   overflow-x: auto;
 }
 
@@ -292,14 +343,14 @@
 .input_area pre {
   margin: 0;
   padding: 0.5rem;
-  background: #f6f8fa;
+  background: var(--secondary-light);
   border-radius: 4px;
 }
 
 .output_area pre {
   margin: 0.5rem 0 0;
   padding: 0.5rem;
-  background: #ffffff;
+  background: var(--background);
   border-radius: 4px;
 }
 
@@ -319,24 +370,24 @@
 
 .dataframe th, .dataframe td {
   padding: 0.5rem;
-  border: 1px solid #e1e4e8;
+  border: 1px solid var(--border-color);
 }
 
 .dataframe thead th {
-  background: #f6f8fa;
+  background: var(--secondary-light);
 }
 
 .post-tags {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(230, 230, 230, 1);
+  border-top: 1px solid var(--border-color);
 }
 
 .tag {
   display: inline-block;
   padding: 0.2rem 0.8rem;
-  background: rgba(242, 242, 242, 1);
-  color: rgba(117, 117, 117, 1);
+  background: var(--secondary-light);
+  color: var(--text-muted);
   border-radius: 100px;
   font-size: 0.875rem;
   margin: 0.25rem;
@@ -354,6 +405,138 @@
   .post-cover {
     height: 300px;
   }
+}
+
+@media (min-width: 768px) {
+  .post-content img {
+    max-width: 85%;
+  }
+}
+
+/* 特定容器中的图片样式 */
+.image-container {
+  width: 100%;
+  margin: 3rem auto;
+  text-align: center;
+  overflow: visible;
+}
+
+.image-container img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  object-fit: contain;
+}
+
+.image-container.large {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.large img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-container.medium {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.medium img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-container.small {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-container.small img {
+  max-width: 100%;
+  width: auto;
+}
+
+.image-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+  padding: 0 5%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 调整图片容器宽度，确保图片完整显示 */
+@media (max-width: 768px) {
+  .image-container.large,
+  .image-container.medium,
+  .image-container.small {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* 图片容器增强样式，确保图片完整显示 */
+.post-content .image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+  margin: 3rem auto;
+  overflow: visible;
+}
+
+.post-content .image-container img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* 确保图片不超出容器 */
+.post-content img {
+  max-width: 100%;
+  height: auto !important;
+  width: auto !important;
+  max-height: 600px;
+  object-fit: contain;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 </style>
 

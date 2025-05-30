@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to HiFi IEMs: The Gateway to Personal Audio Excellence"
 subtitle: "Understanding In-Ear Monitors: From Basic Concepts to Advanced Technology"
 author: XenoDennis
-date: 2024-03-21
+date: 2025-03-21
 formatted_date: "Mar 21, 2024"
 read_time: 8
 cover_image: https://images.unsplash.com/photo-1631867675167-90a456a90863

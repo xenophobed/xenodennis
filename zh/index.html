@@ -44,7 +44,8 @@ lang: zh
 <div class="home-container">
   <div class="main-content">
     <div class="post-list">
-      {% for post in site.posts_zh %}
+      {% assign sorted_posts = site.posts_zh | sort: 'date' | reverse %}
+      {% for post in sorted_posts %}
         <article class="post-preview">
           <div class="post-content-preview">
             <div class="post-meta">
